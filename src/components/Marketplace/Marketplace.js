@@ -1,14 +1,37 @@
 import './Marketplace.scss'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { useState, useEffect } from 'react'
 
 function Marketplace() {
-    return(
-        <div className='marketplace'>
-            <Link className='marketplace__item'>
-            <img className='marketplace__item-image'/>
-            <h3 className='marketplace__item-name'></h3>
-            </Link>
-        </div>
+
+    const [ produces, setProduces] = useState([])
+
+    useEffect(() => {
+        axios.get(`http://localhost:8080/produce`)
+        .then(response => {
+            setProduces(response.data)
+        }).catch(err => {
+            console.log("Error 404 Bad Request", err)
+        })
+    }, [])
+
+
+
+
+    return (
+        produces.map((produce) => (
+    <Link>
+        <card className='marketplace-card'>
+            <img className='marketplace-card__image' src={produce.image}/>
+            <h3 className='marketplace__item-name'>{produce.produce_name}</h3>
+            <div className='marketplace-card__content-container'>
+                <p className='marketplace-card__content'>{produce.produce_type}</p>
+                <p className='marketplace-card__content'>{produce.quantity}</p>
+                <p className='marketplace-card__content'>{produce.harvest_date}</p>
+            </div>
+        </card>
+    </Link>))
     )
 }
 export default Marketplace

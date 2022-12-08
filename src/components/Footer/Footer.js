@@ -8,9 +8,9 @@ function Footer() {
     return (
         <footer className='footer'>
             <div className='footer__content-container'>
-                <h1 className='footer__heading'>Contacts</h1>
+                <h2 className='footer__heading'>Contacts</h2>
                 <div className='footer__section-container'>
-                    <h2 className='footer__subheading'>PHONE NUMBER</h2>
+                    <h3 className='footer__subheading'>PHONE NUMBER</h3>
                     <p className='footer__content'>(403) 234-456</p>
                 </div>
                 <div className='footer__section-container'>
@@ -22,7 +22,7 @@ function Footer() {
                     <p className='footer__content'>seamus@growlocal.io</p>
                 </div>
                 <div>
-                    <h1 className='footer__heading'>Social</h1>
+                    <h2 className='footer__heading'>Social</h2>
                     <img className='footer__icon' src={facebook}/>
                     <img className='footer__icon'src={instagram}/>
                     <img className='footer__icon' src={twitter}/>
