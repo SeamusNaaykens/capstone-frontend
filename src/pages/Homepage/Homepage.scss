@@ -1,3 +1,21 @@
 @use '../../styles/partials/fonts' as *;
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
+
+.homepage {
+
+    margin-bottom: 2rem;
+
+    &__banner {
+        height: 50vw;
+        background-image: url(../../assets/images/hero-image.JPG);
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-bottom: 2rem;
+    }
+
+    &__markerplace-container {
+        display: flex;
+        justify-content: space-around;
+    }
+}

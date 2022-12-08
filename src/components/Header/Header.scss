@@ -1,3 +1,61 @@
 @use '../../styles/partials/fonts' as *;
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
+
+.header {
+    background-color: $dark-orange;
+    padding: .5rem;
+
+    &__link-container--1 {
+        width: 65%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: .5rem;
+    }
+
+    &__link-container--2 {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: .5rem;
+    }
+
+    &__logo-container {
+        width: 5rem;
+        justify-items: center;
+    }
+
+    &__logo {
+        width: 100%;
+    }
+
+    &__login-link {
+        color: $white;
+        background-color: $light-green;
+        padding: .25rem .75rem .25rem .75rem;
+        font-size: .75rem;
+        height: 1.25rem;
+        border-radius: 15px;
+    }
+
+    &__link {
+        padding: .25rem .75rem .25rem .75rem;
+        font-size: .75rem;
+        border-radius: 15px;
+        text-decoration: none;
+        color: $white;
+        background-color: $mid-orange;
+    }
+
+    &__logo-search {
+        width: 100%;
+        height: 1.25rem;
+        border-radius: .9375rem;
+        font-family: 'Quicksand';
+        color: $dark-orange;
+        font-family: 600;
+        font-size: .75rem;
+        border: none;
+        text-align: center;
+    }
+
+}

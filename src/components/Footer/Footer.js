@@ -2,13 +2,15 @@ import './Footer.scss'
 import facebook from '../../assets/icons/Icon-facebook.svg'
 import instagram from '../../assets/icons/Icon-instagram.svg'
 import twitter from '../../assets/icons/Icon-twitter.svg'
-import logo from '../../assets/icons/GROWLocal.png'
+import logo from '../../assets/icons/GROWLocal.jpg'
 
 function Footer() {
     return (
         <footer className='footer'>
             <div className='footer__content-container'>
-                <h2 className='footer__heading'>Contacts</h2>
+                <div className='footer__heading-container--1'>
+                    <h2 className='footer__heading'>Contacts</h2>
+                </div>
                 <div className='footer__section-container'>
                     <h3 className='footer__subheading'>PHONE NUMBER</h3>
                     <p className='footer__content'>(403) 234-456</p>
@@ -22,13 +24,18 @@ function Footer() {
                     <p className='footer__content'>seamus@growlocal.io</p>
                 </div>
                 <div>
-                    <h2 className='footer__heading'>Social</h2>
-                    <img className='footer__icon' src={facebook}/>
-                    <img className='footer__icon'src={instagram}/>
-                    <img className='footer__icon' src={twitter}/>
+                    <div className='footer__heading-container--2'>
+                        <h2 className='footer__heading'>Social</h2>
+                    </div>
+                    <div className='footer__icon-container'>
+                        <img className='footer__icon' src={facebook} />
+                        <img className='footer__icon' src={instagram} />
+                        <img className='footer__icon' src={twitter} />
+                    </div>
                 </div>
             </div>
-            <img className='footer__logo' src={logo}/>
+            <img className='footer__logo' src={logo} />
+
         </footer>
     )
 }
