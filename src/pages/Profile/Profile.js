@@ -8,17 +8,13 @@ import Footer from '../../components/Footer/Footer'
 
 function Profile() {
     return (
-        <div className='profile'>
-            <Header />
-            <main className='profile__page'>
-                <div className='profile__page-content-container'>
-                    <ProfileInfo />
-                    <Chatbox />
-                </div>
-                <ProfileMarketplace />
-            </main>
-            <Footer/>
-        </div>
+        <main className='profile__page'>
+            <div className='profile__page-content-container'>
+                <ProfileInfo />
+                <Chatbox />
+            </div>
+            <ProfileMarketplace />
+        </main>
     )
 }
 export default Profile
