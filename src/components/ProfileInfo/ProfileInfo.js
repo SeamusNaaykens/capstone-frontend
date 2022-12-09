@@ -11,7 +11,6 @@ function ProfileInfo() {
 
     const [ user, setUser ] = useState([])
 
-
     useEffect(() => {
         if (passProfileId === null) {
             return;
@@ -26,26 +25,26 @@ function ProfileInfo() {
 
 
     return (
-        <div>
-            <h1>{user.username}</h1>
+        <div className='profile-info__container'>
+            <h1 className='profile-info__name'>{user.username}</h1>
             <img />
-            <div>
-                <h2>About you:</h2>
-                <p>{user.profile_statement}</p>
+            <div className='profile-info__content-container'>
+                <h2 className='profile-info__heading'>About you:</h2>
+                <p className='profile-info__content'>{user.profile_statement}</p>
             </div>
-            <div>
-                <h2>Favourite produce:</h2>
-                <p>{user.favourite_produce}</p>
+            <div className='profile-info__content-container'>
+                <h2 className='profile-info__heading'>Favourite produce:</h2>
+                <p className='profile-info__content'>{user.favourite_produce}</p>
             </div>
-            <div>
-                <h2>Located in:</h2>
-                <p>{user.location}</p>
+            <div className='profile-info__content-container'>
+                <h2 className='profile-info__heading'>Located in:</h2>
+                <p className='profile-info__content'>{user.location}</p>
             </div>
-            <div>
-                <h2>Growing since: </h2>
-                <p>{user.account_creation}</p>
+            <div className='profile-info__content-container'>
+                <h2 className='profile-info__heading'>Growing since: </h2>
+                <p className='profile-info__content'>{user.account_creation}</p>
             </div>
         </div>
-    )
-}
+    );
+};
 export default ProfileInfo
