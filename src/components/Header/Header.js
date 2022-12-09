@@ -7,13 +7,13 @@ function Header() {
         <header className='header'>
             <div className='header__link-container--1'>
                 <Link className='header__login-link'>Login</Link>
-                <Link className='header__logo-container'>
+                <Link to={'/'} className='header__logo-container'>
                     <img className='header__logo' src={logo} />
                 </Link>
             </div>
             <div className='header__container'>
                 <div className='header__link-container--2'>
-                    <Link className='header__link'>Homepage</Link>
+                    <Link to={'/'} className='header__link'>Homepage</Link>
                     <Link className='header__link'>Learning Channel</Link>
                     <Link className='header__link'>My Profile</Link>
                 </div>

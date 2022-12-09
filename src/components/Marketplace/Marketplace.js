@@ -1,9 +1,13 @@
 import './Marketplace.scss'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 
 function Marketplace() {
+
+    const { profileId } = useParams()
+
+    const passProfileId = profileId || null
 
     const [produces, setProduces] = useState([])
 
@@ -21,7 +25,7 @@ function Marketplace() {
 
     return (
         produces.map((produce) => (
-            <Link className='marketplace-card'>
+            <Link to={`/${produce.user_id}`} className='marketplace-card'>
                 <card >
                     <img className='marketplace-card__image' src={produce.image} />
                     <h3 className='marketplace-card__item-name'>{produce.produce_name}</h3>
