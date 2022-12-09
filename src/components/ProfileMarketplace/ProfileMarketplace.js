@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 
 function ProfileMarketplace() {
 
-const { profileId } = useParams
+const { profileId } = useParams()
 
 const passProfileId = profileId || null
 
@@ -16,13 +16,13 @@ const passProfileId = profileId || null
     if (passProfileId === null) {
         return;
     }
-    axios.get(`http://localhost:8080/${passProfileId}/produce`)
+    axios.get(`http://localhost:8080/users/${passProfileId}/produce`)
     .then(response => {
         setUserPosts(response.data)
     }).catch(err => {
         console.log("Error 404 Bad Request", err)
     })
- }, [])
+ }, [passProfileId])
 
     return(
         <div>
