@@ -2,7 +2,6 @@ import './ProfileInfo.scss'
 import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import pic from '../../assets/images/mac-pic.jpg'
 import editIcon from '../../assets/icons/edit-24px.svg'
 import deleteIcon from '../../assets/icons/delete_outline-24px.svg'
 
@@ -32,7 +31,7 @@ function ProfileInfo() {
             <h1 className='profile-info__name'>{user.username}</h1>
             <div className='profile-info__container'>
                 <div className='profile-info__subcontainer--1'>
-                    <img className='profile-info__picture' src={pic} />
+                    <img className='profile-info__picture' src={user.image} />
                     <div className='profile-info__content-container'>
                         <div className='profile-info__heading-container'>
                             <h2 className='profile-info__heading'>About you:</h2>

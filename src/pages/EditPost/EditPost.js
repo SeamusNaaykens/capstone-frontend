@@ -142,11 +142,11 @@ function EditPost() {
                                 id='harvest_date'>
                             </input>
                         </div>
-                        <div className='edit-post__input-subcontainer'>
+                        {/* <div className='edit-post__input-subcontainer'>
                             <h2 className='edit-post__input-heading'>UPLOAD IMAGE</h2>
                             <input
                                 className='edit-post__input'
-                                type='text'
+                                type='file'
                                 onChange={updatePost}
                                 value={editPost.image}
                                 required={true}
@@ -155,7 +155,7 @@ function EditPost() {
                                 name='image'
                                 id='image'>
                             </input>
-                        </div>
+                        </div> */}
                     </div>
                     <div className='edit-post__button-container'>
                         <button className='edit-post__button--1'>SAVE</button>

@@ -8,6 +8,9 @@ import LearningChannel from '../src/pages/LearningChannel/LearningChannel.js'
 import Login from '../src/pages/Login/Login.js'
 import EditProfile from '../src/pages/EditProfile/EditProfile.js'
 import EditPost from '../src/pages/EditPost/EditPost.js'
+import AddPost from '../src/pages/AddPost/AddPost.js'
+import AddProfile from '../src/pages/AddProfile/AddProfile.js'
+
 
 function App() {
   return (
@@ -20,6 +23,8 @@ function App() {
       <Route path='learningChannel' element={<LearningChannel/>}/>
       <Route path='/:profileId/editProfile' element={<EditProfile/>}/>
       <Route path='/:postId/editPost' element={<EditPost/>}/>
+      <Route path='/:profileId/addPost' element={<AddPost/>}/>
+      <Route path='/addProfile' element={<AddProfile/>}/>
     </Routes>
     <Footer/>
     </BrowserRouter>

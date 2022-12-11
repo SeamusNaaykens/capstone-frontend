@@ -5,12 +5,11 @@ import axios from 'axios'
 
 
 const fields = [
-    'produce_name',
-    'image',
-    'produce_type',
-    'quantity',
+    'username',
+    'email',
     'location',
-    'harvest_date'
+    'profile_statement',
+    'favourite_produce',
 ];
 
 function EditProfile() {
@@ -101,7 +100,7 @@ function EditProfile() {
                             <h2 className='edit-user__input-heading'>PROFILE PICTURE</h2>
                             <input
                                 className='edit-user__input'
-                                type='text'
+                                type='file'
                                 onChange={updateUser}
                                 value={editUser.image}
                                 required={true}
