@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import addIcon from '../../assets/icons/add-icon.png'
 import editIcon from '../../assets/icons/edit-24px.svg'
 import deleteIcon from '../../assets/icons/delete_outline-24px.svg'
+import DeleteModalPost from '../DeleteModal/DeleteModalPost.js'
 
 
 function ProfileMarketplace() {
@@ -14,6 +15,7 @@ function ProfileMarketplace() {
     const passProfileId = profileId || null
 
     const [userPosts, setUserPosts] = useState([])
+
 
     useEffect(() => {
         if (passProfileId === null) {
@@ -27,9 +29,17 @@ function ProfileMarketplace() {
             })
     }, [passProfileId])
 
+    // Delete Section 
+    const [clickDelete, setClickDelete] = useState(false);
+
+
     return (
         <div className='profile-marketplace'>
-            <Link  to={`/${profileId}/addPost`} className='profile-marketplace__icon-container'>
+                 {clickDelete &&
+                        <DeleteModalPost
+                            setClickDelete={setClickDelete}
+                            userPosts={userPosts}/>}
+            <Link to={`/${profileId}/addPost`} className='profile-marketplace__icon-container'>
                 <img className='profile-marketplace__add-icon' src={addIcon} />
             </Link>
             {userPosts.map((userPost) => (
@@ -44,11 +54,13 @@ function ProfileMarketplace() {
                             </div>
                             <div className='profile-marketplace-card__icon-container'>
                                 <Link to={`/${userPost.id}/editPost`}>
-                                    <img className='profile-marketplace-card__edit-icon'src={editIcon} />
+                                    <img className='profile-marketplace-card__edit-icon' src={editIcon} />
                                 </Link>
-                                <Link>
+                                <div onClick={() => {
+                                    setClickDelete(true)
+                                }}>
                                     <img className='profile-marketplace-card__delete-icon' src={deleteIcon} />
-                                </Link>
+                                </div>
                             </div>
                         </div>
                         <div className='profile-marketplace-card__content-subcontainer'>
@@ -73,6 +85,7 @@ function ProfileMarketplace() {
                         </div>
                     </div>
                 </div>))}
+
         </div>
     )
 }

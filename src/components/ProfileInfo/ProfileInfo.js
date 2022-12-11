@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import editIcon from '../../assets/icons/edit-24px.svg'
 import deleteIcon from '../../assets/icons/delete_outline-24px.svg'
+import DeleteModalUser from '../DeleteModal/DeleteModalUser'
 
 function ProfileInfo() {
 
@@ -26,8 +27,19 @@ function ProfileInfo() {
     }, [passProfileId])
 
 
+    // Delete Section 
+    const [clickDelete, setClickDelete] = useState(false);
+
+
     return (
+
         <div className='profile-info'>
+            {clickDelete &&
+                <DeleteModalUser
+                    setClickDelete={setClickDelete}
+                    userInState={user}
+                    id={user.id}
+                    name={user.username} />}
             <h1 className='profile-info__name'>{user.username}</h1>
             <div className='profile-info__container'>
                 <div className='profile-info__subcontainer--1'>
@@ -63,9 +75,11 @@ function ProfileInfo() {
                                 <Link to={`/${profileId}/editProfile`}>
                                     <img src={editIcon} />
                                 </Link>
-                                <Link>
+                                <div onClick={() => {
+                                    setClickDelete(true)
+                                }}>
                                     <img src={deleteIcon} />
-                                </Link>
+                                </div>
                             </div>
                         </div>
                     </div>
