@@ -29,7 +29,7 @@ function ProfileMarketplace() {
 
     return (
         <div className='profile-marketplace'>
-            <Link className='profile-marketplace__icon-container'>
+            <Link  to={`/${profileId}/addPost`} className='profile-marketplace__icon-container'>
                 <img className='profile-marketplace__add-icon' src={addIcon} />
             </Link>
             {userPosts.map((userPost) => (
@@ -43,7 +43,7 @@ function ProfileMarketplace() {
                                 <p className='profile-marketplace-card__content'>{userPost.produce_type}</p>
                             </div>
                             <div className='profile-marketplace-card__icon-container'>
-                                <Link>
+                                <Link to={`/${userPost.id}/editPost`}>
                                     <img className='profile-marketplace-card__edit-icon'src={editIcon} />
                                 </Link>
                                 <Link>

@@ -60,7 +60,7 @@ function ProfileInfo() {
                         <div className='profile-info__content-subcontainer'>
                             <p className='profile-info__content'>{new Date(user.account_creation).toLocaleDateString()}</p>
                             <div>
-                                <Link>
+                                <Link to={`/${profileId}/editProfile`}>
                                     <img src={editIcon} />
                                 </Link>
                                 <Link>

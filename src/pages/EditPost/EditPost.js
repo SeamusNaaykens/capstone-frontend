@@ -5,7 +5,7 @@ import axios from 'axios'
 
 const fields = [
     'produce_name',
-    'image',
+    // 'image',
     'produce_type',
     'quantity',
     'location',
@@ -20,7 +20,7 @@ function EditPost() {
 
     const [editPost, setEditPost] = useState({
         produce_name: '',
-        image: '',
+        // image: '',
         produce_type: '',
         quantity: '',
         location: '',
