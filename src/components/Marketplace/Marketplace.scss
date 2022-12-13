@@ -2,50 +2,192 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
+.marketplace {
+
+    &__form-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    &__form {
+        width: 90%;
+        background-color: $dark-orange;
+        padding: 1rem;
+        border-radius: 1.5rem;
+
+        @include tablet {
+            width: 70%;
+            border-radius: 2rem;
+        }
+    }
+
+    &__search-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        
+    }
+
+    &__search {
+        width: 90%;
+        height: 1.5rem;
+        text-align: center;
+        font-family: 'Quicksand';
+        border: none;
+        border-radius: .9375rem;
+
+        @include tablet {
+            width: 50%;
+            height: 2rem;
+        }
+    }
+
+    &__search-button {
+        height: 1.5rem;
+        background-color: $dark-green;
+        color: $white;
+        padding-right: .5rem;
+        padding-left: .5rem;
+        font-weight: 600;
+        font-family: 'Quicksand';
+        border: none;
+        border-left: solid .125rem $dark-orange;
+
+        @include tablet {
+            height: 2rem;
+        }
+    }
+}
+
+
+
+.section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablet {
+        flex-direction: row;
+         flex-wrap: wrap;
+         justify-content: space-around;
+
+    }
+   
+}
+
+.marketplace-card__container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
 .marketplace-card {
-    width: 40%;
-    height: 12rem;
+    width: 70%;
     display: flex;
     flex-direction: column;
     padding: .5rem;
-    margin-bottom: .5rem;
+    margin-bottom: 1rem;
     background-color: $dark-green;
     border-radius: .3125rem;
     text-decoration: none;
-    box-shadow: 1.25rem;
+    box-shadow: 5px 5px 5px $black;
+
+    @include tablet {
+        width: 30%;
+        margin-bottom: 1.5rem;
+        border-radius: .5rem;
+
+    }
+
+    @include desktop {
+        padding: .75rem;
+        margin-bottom: 2rem;
+        border-radius: 10px;
+    }
+
+    &__detail-overlay {
+        position: absolute;
+        left: 14.7vw;
+        background-color: rgba($color: #000000, $alpha: .6);
+        width: 65vw;
+        height: 45vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: .5rem;
+        border-radius: .3125rem;
+        margin-right: 5rem;
+
+        @include tablet {
+            position: relative;
+            z-index: 2;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            width: 30%;
+            left: 5vw;
+        }
+    }
+
 
     &__image {
-        width: 100%;
-        height: 5rem;
+        width: 65vw;
+        height: 45vw;
         flex-shrink: 0;
         object-fit: cover;
         border-radius: .3125rem;
 
+        @include tablet {
+            height: 30vw;
+            width: 28vw;
+            border-radius: .5rem;
+        }
+
+        @include desktop {
+            border-radius: 10px;
+        }
     }
 
     &__item-name {
-        font-size: .6875rem;
+        font-size: 5.5vw;
         color: $white;
-        font-weight: 700; 
-        margin-bottom: .5rem;
+        font-weight: 700;
         text-align: center;
+        margin-top: .25rem;
+
+        @include tablet {
+            font-size: 2.4vw;
+        }
+
+        @include desktop {
+            margin-top: .5rem;
+            font-size: 2.4vw;
+        }
     }
 
-    &__content-container {
+    &__content-container--overlay {
         display: flex;
-        flex-wrap: wrap;
         justify-content: space-between;
+        margin-bottom: 1rem;
     }
 
-    &__heading {
+    &__content-subcontainer--overlay {
+        text-align: center;
+        // border: solid .0625rem $dark-orange;
+        // padding: .25rem;
+    }
+
+    &__heading--overlay {
         color: $white;
-        font-size: .625rem;
+        font-size: 4vw;
         font-weight: 600;
-      
+
     }
 
-    &__content {
+    &__content--overlay {
         color: $white;
-        font-size: .625rem;
+        font-size: 3.5vw;
     }
 }

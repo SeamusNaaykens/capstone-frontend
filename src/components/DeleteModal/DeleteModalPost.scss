@@ -3,9 +3,8 @@
 @use '../../styles/partials/variables' as *;
 
 .delete {
-    height: 100vh;
+    height: 100%;
     width: 100vw;
-    position: absolute;
     background-color: rgba(180, 112, 4, 0.8);
     background-size: cover;
     padding: 2rem;

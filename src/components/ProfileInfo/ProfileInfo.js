@@ -71,14 +71,14 @@ function ProfileInfo() {
                         </div>
                         <div className='profile-info__content-subcontainer'>
                             <p className='profile-info__content'>{new Date(user.account_creation).toLocaleDateString()}</p>
-                            <div>
+                            <div className='profile-info__icon-container'>
                                 <Link to={`/${profileId}/editProfile`}>
-                                    <img src={editIcon} />
+                                    <img className='profile-info__icon' src={editIcon} />
                                 </Link>
                                 <div onClick={() => {
                                     setClickDelete(true)
                                 }}>
-                                    <img src={deleteIcon} />
+                                    <img  className='profile-info__icon' src={deleteIcon} />
                                 </div>
                             </div>
                         </div>

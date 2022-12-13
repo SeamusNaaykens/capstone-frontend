@@ -7,8 +7,8 @@ import ProfileMarketplace from '../../components/ProfileMarketplace/ProfileMarke
 function Profile() {
 
     return (
-        <main className='profile__page'>
-            <div className='profile__page-content-container--1'>
+        <main className='profile-page'>
+            <div className='profile-page__content-container'>
                 <ProfileInfo />
                 <Chatbox />
             </div>

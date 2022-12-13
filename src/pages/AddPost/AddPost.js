@@ -75,7 +75,6 @@ function AddPost() {
     }
 
 
-
     return (
         <section className='add-post'>
             <div className='add-post__form-container'>
@@ -156,7 +155,7 @@ function AddPost() {
                                 id='harvest_date'>
                             </input>
                         </div>
-                        {/* <div className='add-post__input-subcontainer'>
+                        <div className='add-post__input-subcontainer'>
                             <h2 className='add-post__input-heading'>UPLOAD IMAGE</h2>
                             <input
                                 className='add-post__input'
@@ -169,11 +168,11 @@ function AddPost() {
                                 name='image'
                                 id='image'>
                             </input>
-                        </div> */}
+                        </div>
                     </div>
                     <div className='add-post__button-container'>
+                        <Link to={`/${profileId}`} className='add-post__button--2'>CANCEL</Link>
                         <button className='add-post__button--1'>CREATE</button>
-                        <Link className='add-post__button--2'>CANCEL</Link>
                     </div>
                 </form>
             </div>

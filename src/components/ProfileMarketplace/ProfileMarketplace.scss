@@ -3,16 +3,30 @@
 @use '../../styles/partials/variables' as *;
 
 .profile-marketplace {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    &__icon-container {
-    align-self: flex-end;
+
+
+    &__container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        @include tablet {
+            justify-content: space-around;
+        }
     }
 
     &__add-icon {
         width: 1.5rem;
+
+        @include tablet {
+            width: 4vw;
+        }
+
+        @include desktop {
+            margin-bottom: 2rem;
+        }
     }
 }
 
@@ -27,6 +41,57 @@
     text-decoration: none;
     box-shadow: 1.25rem;
     margin-top: 1rem;
+    box-shadow: 5px 5px 5px $black;
+
+    @include tablet {
+        width: 45%;
+        border-radius: .5rem;
+        height: 69vw;
+        margin-bottom: 1rem;
+        padding: .5rem 1rem .5rem 1rem;
+    }
+
+    @include desktop {
+        width: 23%;
+        height: 43vw;
+    }
+
+    &__icon-container {
+        display: flex;
+    }
+
+    &__edit-icon {
+        @include tablet {
+            width: 4vw;
+        }
+
+        @include desktop {
+            width: 2.5vw;
+        }
+    }
+
+    &__delete-icon--container {
+        margin-right: .5rem;
+        width: 4vw;
+
+        @include tablet {
+            width: 5vw
+        };
+
+        @include desktop {
+            width: 2.5vw;
+        }
+    }
+
+    &__delete-icon {
+        @include tablet {
+            width: 4vw;
+        }
+
+        @include desktop {
+            width: 2.5vw;
+        }
+    }
 
     &__image {
         width: 100%;
@@ -35,21 +100,37 @@
         object-fit: cover;
         border-radius: .3125rem;
 
+        @include tablet {
+            border-radius: .5rem;
+        }
+
+        @include desktop {
+            height: 25vw;
+            border-radius: .625rem;
+        }
     }
 
     &__item-name {
         font-size: 5vw;
         color: $white;
-        font-weight: 700; 
-        margin-top: .5rem ;
+        font-weight: 700;
+        margin-top: .5rem;
         margin-bottom: .5rem;
         text-align: center;
+
+        @include tablet {
+            font-size: 3.75vw ;
+        }
+
+        @include desktop {
+            font-size: 1.75vw;
+        }
     }
 
     &__content-container {
-       padding: .5rem .5rem 0rem .5rem;
-       background-color: $darker-green;
-       border-radius: .9375rem;
+        padding: .5rem .5rem 0rem .5rem;
+        background-color: $darker-green;
+        border-radius: .9375rem;
     }
 
     &__content-subcontainer {
@@ -59,16 +140,31 @@
 
     &__heading {
         color: $white;
-        font-size: 3.5vw;
+        font-size: 4vw;
         font-weight: 600;
         text-decoration: underline solid $white;
-      
+
+        @include tablet {
+            font-size: 2.6vw;
+        }
+
+        @include desktop {
+            font-size: 1.3vw;
+        }
     }
 
     &__content {
         color: $white;
         font-size: 3.5vw;
         margin-bottom: .5rem;
+
+        @include tablet {
+            font-size: 2.5vw;
+        }
+
+        @include desktop {
+            font-size: 1.4vw;
+        }
     }
 
 }

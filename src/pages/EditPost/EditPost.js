@@ -158,8 +158,8 @@ function EditPost() {
                         </div> */}
                     </div>
                     <div className='edit-post__button-container'>
+                        <Link to={`/${editPost.user_id}`} className='edit-post__button--2'>CANCEL</Link>
                         <button className='edit-post__button--1'>SAVE</button>
-                        <Link className='edit-post__button--2'>CANCEL</Link>
                     </div>
                 </form>
             </div>

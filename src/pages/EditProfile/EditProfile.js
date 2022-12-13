@@ -7,6 +7,7 @@ import axios from 'axios'
 const fields = [
     'username',
     'email',
+    // 'image',
     'location',
     'profile_statement',
     'favourite_produce',
@@ -19,6 +20,7 @@ function EditProfile() {
 
     const [editUser, setEditUser] = useState({
         username: '',
+        email:'',
         // image: '',
         location: '',
         profile_statement: '',
@@ -45,7 +47,7 @@ function EditProfile() {
 
     const handleSubmitEvent = (e) => {
         e.preventDefault();
-        const obj = {}
+        let obj = {}
         fields.forEach((field) => {
             obj[field] = e.target[field].value
         })
@@ -97,7 +99,7 @@ function EditProfile() {
                     </div>
                     <div className='edit-user__input-container'>
                         <div className='edit-user__input-subcontainer'>
-                            <h2 className='edit-user__input-heading'>PROFILE PICTURE</h2>
+                            {/* <h2 className='edit-user__input-heading'>PROFILE PICTURE</h2>
                             <input
                                 className='edit-user__input'
                                 type='file'
@@ -108,7 +110,7 @@ function EditProfile() {
                                 placeholder='Upload a picture to customize your profile'
                                 name='profile_pic'
                                 id='profile_pic'>
-                            </input>
+                            </input> */}
                         </div>
                         <div className='edit-user__input-subcontainer'>
                             <h2 className='edit-user__input-heading'>ABOUT YOU</h2>
@@ -126,6 +128,20 @@ function EditProfile() {
                         </div>
                     </div>
                     <div className='edit-user__input-container'>
+                    <div className='edit-user__input-subcontainer'>
+                            <h2 className='edit-user__input-heading'>EMAIL</h2>
+                            <input
+                                className='edit-user__input'
+                                type='text'
+                                onChange={updateUser}
+                                value={editUser.email}
+                                required={true}
+                                label='Email'
+                                placeholder='Enter a valid email here'
+                                name='email'
+                                id='email'>
+                            </input>
+                        </div>
                         <div className='edit-user__input-subcontainer'>
                             <h2 className='edit-user__input-heading'>FAVOURITE PRODUCE</h2>
                             <input
@@ -142,8 +158,8 @@ function EditProfile() {
                         </div>
                     </div>
                     <div className='edit-user__button-container'>
+                        <Link to={`/${profileId}`} className='edit-user__button--2'>CANCEL</Link>
                         <button className='edit-user__button--1'>SAVE</button>
-                        <Link className='edit-user__button--2'>CANCEL</Link>
                     </div>
                 </form>
             </div>

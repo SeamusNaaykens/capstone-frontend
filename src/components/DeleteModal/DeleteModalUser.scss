@@ -3,17 +3,15 @@
 @use '../../styles/partials/variables' as *;
 
 .delete {
-    height: 29.0938rem;
-    width: 90%;
-    position: absolute;
-    right: 1rem;
+    height: 5vw;
+    width: 15vw;
     bottom: 22.5rem;
     background-color: rgba(83, 124, 9, .8);
     background-size: cover;
     padding: 2rem;
     display: flex;
     align-items: center;
-    border-radius: .9375rem;
+    position: absolute;
 
     &__container {
         width: 100%;

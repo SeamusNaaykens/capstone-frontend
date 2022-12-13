@@ -8,52 +8,167 @@
     display: flex;
     justify-content: space-between;
 
-    
+    &__content-container {
+        @include tablet {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @include desktop {
+            padding: 1rem 1.5rem 1rem 1.5rem;
+        }
+    }
+
     &__heading-container--1 {
         width: 40%;
-         background-color: $light-green;
+        background-color: $light-green;
         padding: .25rem .75rem .25rem .75rem;
         margin-bottom: 1rem;
         border-radius: .9375rem;
+
+        @include tablet {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            height: 5vw;
+            border-radius: 1.5rem;
+        }
+
+        @include desktop {
+            border-radius: 2rem;
+        }
+
     }
 
     &__heading-container--2 {
         width: 30%;
-         background-color: $light-green;
+        background-color: $light-green;
         padding: .25rem .75rem .25rem .75rem;
         margin-top: 1rem;
         margin-bottom: 1rem;
         border-radius: .9375rem;
+
+        @include tablet {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 70%;
+            height: 5vw;
+            margin: 0rem;
+            border-radius: 1.5rem;
+        }
+
+        @include desktop {
+            border-radius: 2rem;
+            margin-bottom: 1rem;
+        }
     }
 
     &__heading {
         font-size: 1rem;
         font-weight: 700;
         color: $white;
-       
+
+        @include tablet {
+            font-size: 1.5rem;
+        }
+
+        @include desktop {
+            font-size: 2rem;
+        }
     }
 
     &__subheading {
         font-size: .75rem;
         color: $white;
         margin-bottom: .25rem;
+
+        @include desktop {
+            font-size: 1.125rem;
+        }
+    }
+
+    &__contact-container {
+        @include tablet {
+            width: 20%;
+        }
+    }
+
+    &__social-container {
+        @include tablet {
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
     }
 
     &__content {
         color: $white;
-        font-size: 12px;
+        font-size: .75rem;
         margin-bottom: .5rem;
+
+        @include desktop {
+            font-size: 1.125rem;
+        }
     }
 
-    &__logo {
+    &__logo--1 {
+        display: none;
+
+        @include tablet {
+            display: inline;
+            width: 25vw;
+            height: 20vw;
+        }
+    }
+
+    &__logo--2 {
         width: 15vw;
         height: 12vw;
         align-self: flex-end;
+
+        @include tablet {
+            display: none;
+        }
     }
 
     &__icon-container {
         display: flex;
         justify-content: space-between;
         width: 40%;
+
+        @include tablet {
+            width: 75%;
+            height: 80%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+
+        }
+
+        @include desktop {
+            justify-content: space-between;
+        }
+    }
+
+    &__icon--facebook {
+        @include tablet {
+            width: 2.5vw;
+        }
+    }
+
+    &__icon--instagram {
+        @include tablet {
+            width: 4vw;
+        }
+    }
+
+    &__icon--twitter {
+        @include tablet {
+            width: 4vw;
+        }
     }
 }

@@ -1,15 +1,17 @@
 import './Marketplace.scss'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 
 function Marketplace() {
 
-    const { profileId } = useParams()
-
-    const passProfileId = profileId || null
-
     const [produces, setProduces] = useState([])
+    const [isShown, setIsShown] = useState(false)
+    const [searchInput, setSearchInput] = useState([]);
+    const [filteredResults, setFilteredResults] = useState([]);
+
+
+
 
     useEffect(() => {
         axios.get(`http://localhost:8080/produce`)
@@ -20,31 +22,72 @@ function Marketplace() {
             })
     }, [])
 
-
+    const searchItems = (searchValue) => {
+        setSearchInput(searchValue)
+        if (searchInput !== '') {
+            const filteredData = produces.filter((post) => {
+                return Object.values(post).join('').toLocaleLowerCase().includes(searchInput.toLocaleLowerCase())
+            })
+            setFilteredResults(filteredData)
+        }
+        else {
+            setFilteredResults(produces)
+        }
+    }
 
 
     return (
-        produces.map((produce) => (
-            <Link to={`/${produce.user_id}`} className='marketplace-card'>
-                <card >
-                    <img className='marketplace-card__image' src={produce.image} />
-                    <h3 className='marketplace-card__item-name'>{produce.produce_name}</h3>
-                    <div className='marketplace-card__content-container'>
-                        <div>
-                            <p className='marketplace-card__heading'>CATEGORY:</p>
-                            <p className='marketplace-card__content'>{produce.produce_type}</p>
-                        </div>
-                        <div>
-                            <p className='marketplace-card__heading'>QUANITY:</p>
-                            <p className='marketplace-card__content'>{produce.quantity}</p>
-                        </div>
-                        <div>
-                            <p className='marketplace-card__heading'>HARVESTED ON:</p>
-                            <p className='marketplace-card__content'>{new Date(produce.harvest_date).toLocaleDateString()}</p>
-                        </div>
+        <div className='marketplace'>
+            <div className='marketplace__form-container'>
+                <form className='marketplace__form'>
+                    <div className='marketplace__search-container'>
+                        <input
+                            className='marketplace__search'
+                            type='search'
+                            placeholder='Search here'
+                            onChange={(e) => searchItems(e.target.value)}
+                            // value={searchInput}
+                            >
+                        </input>
                     </div>
-                </card>
-            </Link>))
+                </form>
+            </div>
+            <section className='section-container'>
+                {filteredResults.map((produce) => (
+                    <Link to={`/${produce.user_id}`} className='marketplace-card'>
+                        <div className='marketplace-card__container'
+                            onMouseEnter={() => setIsShown(true)}
+                            onMouseLeave={() => setIsShown(false)}
+                        >
+                            {isShown && <div className='marketplace-card__detail-overlay'>
+                                <div className='marketplace-card__content-container--overlay'>
+                                    <div className='marketplace-card__content-subcontainer--overlay'>
+                                        <p className='marketplace-card__heading--overlay'>Category</p>
+                                        <p className='marketplace-card__content--overlay'>{produce.produce_type}</p>
+                                    </div>
+                                    <div className='marketplace-card__content-subcontainer--overlay'>
+                                        <p className='marketplace-card__heading--overlay'>Quantity</p>
+                                        <p className='marketplace-card__content--overlay'>{produce.quantity}</p>
+                                    </div>
+                                </div>
+                                <div className='marketplace-card__content-container--overlay'>
+                                    <div className='marketplace-card__content-subcontainer--overlay'>
+                                        <p className='marketplace-card__heading--overlay'>Harvested On</p>
+                                        <p className='marketplace-card__content--overlay'>{new Date(produce.harvest_date).toLocaleDateString()}</p>
+                                    </div>
+                                    <div className='marketplace-card__content-subcontainer--overlay'>
+                                        <p className='marketplace-card__heading--overlay'>Posted On</p>
+                                        <p className='marketplace-card__content--overlay'>{new Date(produce.post_date).toLocaleDateString()}</p>
+                                    </div>
+                                </div>
+                            </div>}
+                            <img className='marketplace-card__image' src={produce.image} alt={produce.produce_name} />
+                        </div>
+                        <h3 className='marketplace-card__item-name'>{produce.produce_name}</h3>
+                    </Link >
+                ))}
+            </section>
+        </div>
     )
 }
 export default Marketplace

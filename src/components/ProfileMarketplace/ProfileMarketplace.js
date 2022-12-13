@@ -35,56 +35,66 @@ function ProfileMarketplace() {
 
     return (
         <div className='profile-marketplace'>
-                 {clickDelete &&
-                        <DeleteModalPost
-                            setClickDelete={setClickDelete}
-                            userPosts={userPosts}/>}
+            {clickDelete &&
+                <DeleteModalPost
+                    setClickDelete={setClickDelete}
+                    userPosts={userPosts} />}
             <Link to={`/${profileId}/addPost`} className='profile-marketplace__icon-container'>
                 <img className='profile-marketplace__add-icon' src={addIcon} />
             </Link>
-            {userPosts.map((userPost) => (
-                <div className='profile-marketplace-card'>
-                    <img className='profile-marketplace-card__image' src={userPost.image} />
-                    <h3 className='profile-marketplace-card__item-name'>{userPost.produce_name}</h3>
-                    <div className='profile-marketplace-card__content-container'>
-                        <div className='profile-marketplace-card__content-subcontainer'>
-                            <div>
-                                <p className='profile-marketplace-card__heading'>CATEGORY:</p>
-                                <p className='profile-marketplace-card__content'>{userPost.produce_type}</p>
+            <div className='profile-marketplace__container'>
+                {userPosts.map((userPost) => (
+                    <div className='profile-marketplace-card'>
+                        <img className='profile-marketplace-card__image' src={userPost.image} alt={userPost.produce_name} />
+                        <h3 className='profile-marketplace-card__item-name'>{userPost.produce_name}</h3>
+                        <div className='profile-marketplace-card__content-container'>
+                            <div className='profile-marketplace-card__content-subcontainer'>
+                                <div>
+                                    <p className='profile-marketplace-card__heading'>Category</p>
+                                    <p className='profile-marketplace-card__content'>{userPost.produce_type}</p>
+                                </div>
+                                <div className='profile-marketplace-card__icon-container'>
+                                    <Link to={`/${userPost.id}/editPost`}>
+                                        <img className='profile-marketplace-card__edit-icon' src={editIcon} alt='edit pencil' />
+                                    </Link>
+                                    <div className='profile-marketplace-card__delete-icon--container' onClick={() => {
+                                        setClickDelete(true)
+                                    }}>
+                                        <img className='profile-marketplace-card__delete-icon' src={deleteIcon} alt='orange garbage can' />
+                                    </div>
+                                </div>
                             </div>
-                            <div className='profile-marketplace-card__icon-container'>
-                                <Link to={`/${userPost.id}/editPost`}>
-                                    <img className='profile-marketplace-card__edit-icon' src={editIcon} />
-                                </Link>
-                                <div onClick={() => {
-                                    setClickDelete(true)
-                                }}>
-                                    <img className='profile-marketplace-card__delete-icon' src={deleteIcon} />
+                            <div className='profile-marketplace-card__content-subcontainer'>
+                                <div>
+                                    <p className='profile-marketplace-card__heading'>Quantity</p>
+                                    <p className='profile-marketplace-card__content'>{userPost.quantity}</p>
+                                </div>
+                                <div>
+                                    <p className='profile-marketplace-card__heading'>Location</p>
+                                    <p className='profile-marketplace-card__content'>{userPost.location}</p>
+                                </div>
+                            </div>
+                            <div className='profile-marketplace-card__content-subcontainer'>
+                                <div>
+                                    <p className='profile-marketplace-card__heading'>Harvested On</p>
+                                    <p className='profile-marketplace-card__content'>{new Date(userPost.harvest_date).toLocaleDateString()}</p>
+                                </div>
+                                <div>
+                                    <p className='profile-marketplace-card__heading'>Posted On</p>
+                                    <p className='profile-marketplace-card__content'>{new Date(userPost.post_date).toLocaleDateString()}</p>
                                 </div>
                             </div>
                         </div>
-                        <div className='profile-marketplace-card__content-subcontainer'>
-                            <div>
-                                <p className='profile-marketplace-card__heading'>QUANTITY:</p>
-                                <p className='profile-marketplace-card__content'>{userPost.quantity}</p>
-                            </div>
-                            <div>
-                                <p className='profile-marketplace-card__heading'>LOCATION:</p>
-                                <p className='marketplace-card__content'>{userPost.location}</p>
-                            </div>
-                        </div>
-                        <div className='profile-marketplace-card__content-subcontainer'>
-                            <div>
-                                <p className='profile-marketplace-card__heading'>HARVESTED ON:</p>
-                                <p className='profile-marketplace-card__content'>{new Date(userPost.harvest_date).toLocaleDateString()}</p>
-                            </div>
-                            <div>
-                                <p className='profile-marketplace-card__heading'>POSTED ON:</p>
-                                <p className='profile-marketplace-card__content'>{new Date(userPost.post_date).toLocaleDateString()}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>))}
+                        {/* {clickDelete &&
+                            <DeleteModalPost
+                                setClickDelete={setClickDelete}
+                                postId ={userPost.id}
+                                name={userPost.produce_name}
+                                userPosts={userPosts} />} */}
+
+                    </div>))}
+
+            </div>
 
         </div>
     )

@@ -7,11 +7,13 @@ function Homepage() {
     return (
         <main className='homepage'>
             <div className='homepage__banner'>
-                <h1></h1>
+                <div className='homepage__banner-overlay'></div>
+                <div className='homepage__banner-content-container'>
+                    <p className='homepage__banner-content'>Nourish the Planet, Nourish Community</p>
+                    <h1 className='homepage__banner-heading'>GrowLocal</h1>
+                </div>
             </div>
-            <div className='homepage__markerplace-container'>
                 <Marketplace />
-            </div>
         </main>
     )
 }

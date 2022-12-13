@@ -7,12 +7,35 @@
     justify-content: center;
     padding: 1rem;
 
+    @include tablet {
+        padding: 1rem 2rem 1rem 2rem;
+        margin: 1rem 0rem 1rem 0rem;
+    }
+
+    @include desktop {
+        padding: 2rem 6rem 2rem 6rem;
+        margin: 2rem 0rem 2rem 0rem;
+    }
+
+
     &__form-container {
         width: 100%;
         background-color: $dark-green;
         border-radius: 1rem;
         padding: .5rem;
 
+        @include tablet {
+            padding: 1rem 2rem 1rem 2rem;
+        }
+    }
+
+    &__input-container {
+
+        @include tablet {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
     }
 
     &__input-subcontainer {
@@ -20,6 +43,16 @@
         margin-bottom: .5rem;
         background-color: $darker-green;
         border-radius: .5rem;
+
+        @include tablet {
+            width: 45%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        @include desktop {
+            margin-bottom: 2rem;
+        }
     }
 
     &__heading {
@@ -27,12 +60,26 @@
         color: $white;
         text-align: center;
         margin-bottom: .5rem;
+
+        @include tablet {
+            margin-bottom: 1rem;
+        }
+
+        @include desktop {
+            margin-bottom: 1.5rem;
+            font-size: 6vw;
+        }
     }
 
     &__input-heading {
         color: $white;
         font-size: 1rem;
         margin-bottom: .25rem;
+
+        @include tablet {
+            font-size: 1.25rem;
+            margin-bottom: .5rem;
+        }
        
     }
 
@@ -44,6 +91,12 @@
         font-size: .625rem;
         padding-left: .5rem;
         height: 1.25rem;
+
+        
+        @include tablet {
+            height: 1.5rem;
+            font-size: .75rem;
+        }
     }
 
     &__button-container {
@@ -62,6 +115,17 @@
         font-weight: 600;
         font-size: .8125rem;
         padding: .25rem 0rem .25rem 0rem;
+
+        @include tablet {
+            height: 2rem;
+            font-size: 1rem;
+            border-radius: .9375rem;
+            margin: 0rem;
+        }
+
+        @include desktop {
+            font-size: 1.25rem;
+        }
     }
 
     &__button--2 {
@@ -76,5 +140,17 @@
         padding: .25rem 0rem .25rem 0rem;
         text-decoration: none;
         text-align: center;
+
+        
+        @include tablet {
+            height: 2rem;
+            font-size: 1rem;
+            border-radius: .9375rem;
+            margin: 0rem;
+        }
+
+        @include desktop {
+            font-size: 1.25rem;
+        }
     }
 }
