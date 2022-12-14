@@ -21,7 +21,7 @@ function EditProfile() {
     const [editUser, setEditUser] = useState({
         username: '',
         email:'',
-        // image: '',
+        // image: ,
         location: '',
         profile_statement: '',
         favourite_produce: '',
@@ -47,19 +47,26 @@ function EditProfile() {
 
     const handleSubmitEvent = (e) => {
         e.preventDefault();
-        let obj = {}
-        fields.forEach((field) => {
-            obj[field] = e.target[field].value
-        })
-        e.target.reset()
+
+        const form = e.target;
+
+        // Create a FormData  (multipart form data) object   
+        //  that we can use to send to the backend  
+        //It will have any data from your form and you can
+        //  add more data to the object later
+        const formData = new FormData(form);
+     
         axios
-            .patch(`http://localhost:8080/users/${profileId}`)
-            .then(res => {
-                obj = res.data
+            .patch(`http://localhost:8080/users/${profileId}`, formData, {
+            headers: {
+                "Content-Type": "multipart/form-data",
+              },
+            }).then(res => {
                 navigate(`/${editUser.id}`)
                 alert('User updated sucessfully')
             })
-            .catch((err) => window.alert(err))
+            .catch((err) => window.alert(err)) 
+            e.target.reset()
     }
 
     return (
@@ -99,18 +106,17 @@ function EditProfile() {
                     </div>
                     <div className='edit-user__input-container'>
                         <div className='edit-user__input-subcontainer'>
-                            {/* <h2 className='edit-user__input-heading'>PROFILE PICTURE</h2>
+                            <h2 className='edit-user__input-heading'>PROFILE PICTURE</h2>
                             <input
                                 className='edit-user__input'
                                 type='file'
                                 onChange={updateUser}
-                                value={editUser.image}
                                 required={true}
                                 label='Profile Picture'
                                 placeholder='Upload a picture to customize your profile'
                                 name='profile_pic'
                                 id='profile_pic'>
-                            </input> */}
+                            </input>
                         </div>
                         <div className='edit-user__input-subcontainer'>
                             <h2 className='edit-user__input-heading'>ABOUT YOU</h2>

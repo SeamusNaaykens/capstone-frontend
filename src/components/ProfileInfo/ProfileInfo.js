@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react'
 import editIcon from '../../assets/icons/edit-24px.svg'
 import deleteIcon from '../../assets/icons/delete_outline-24px.svg'
 import DeleteModalUser from '../DeleteModal/DeleteModalUser'
+import Modal from 'react-modal'
+import React from 'react'
 
 function ProfileInfo() {
 
@@ -28,22 +30,40 @@ function ProfileInfo() {
 
 
     // Delete Section 
-    const [clickDelete, setClickDelete] = useState(false);
+    // const [clickDelete, setClickDelete] = useState(false);
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+    // const [userId, setUserId] = useState("");
+    // const [postName, setPostName] = useState("");
+
+    // const handleClick = (postId, postName) => {
+    //     setPostId(postId)
+    //     setPostName(postName)
+    // }
+
+    function openModal() {
+        setIsOpen(true)
+    }
+
+    function closeModal() {
+        setIsOpen(false)
+    }
 
 
     return (
 
         <div className='profile-info'>
-            {clickDelete &&
-                <DeleteModalUser
-                    setClickDelete={setClickDelete}
-                    userInState={user}
+            <Modal
+            isOpen={modalIsOpen}>
+                {<DeleteModalUser
+                    setUser={setUser}
                     id={user.id}
-                    name={user.username} />}
+                    name={user.username}
+                    toClose={closeModal} />}
+            </Modal>
             <h1 className='profile-info__name'>{user.username}</h1>
             <div className='profile-info__container'>
                 <div className='profile-info__subcontainer--1'>
-                    <img className='profile-info__picture' src={user.image} />
+                    <img className='profile-info__picture' src={user.image} alt={user.username} />
                     <div className='profile-info__content-container'>
                         <div className='profile-info__heading-container'>
                             <h2 className='profile-info__heading'>About you:</h2>
@@ -73,12 +93,12 @@ function ProfileInfo() {
                             <p className='profile-info__content'>{new Date(user.account_creation).toLocaleDateString()}</p>
                             <div className='profile-info__icon-container'>
                                 <Link to={`/${profileId}/editProfile`}>
-                                    <img className='profile-info__icon' src={editIcon} />
+                                    <img className='profile-info__icon' src={editIcon} alt='blue edit pencil' />
                                 </Link>
                                 <div onClick={() => {
-                                    setClickDelete(true)
+                                    openModal()
                                 }}>
-                                    <img  className='profile-info__icon' src={deleteIcon} />
+                                    <img className='profile-info__icon' src={deleteIcon} alt='orange delete garbage can' />
                                 </div>
                             </div>
                         </div>

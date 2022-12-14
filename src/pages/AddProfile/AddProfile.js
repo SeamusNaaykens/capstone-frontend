@@ -4,16 +4,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 
-
-const fields = [
-    'username',
-    'email',
-    'location',
-    'profile_statement',
-    'favourite_produce',
-    // 'image',
-];
-
 function AddProfile() {
 
     const navigate = useNavigate()
@@ -53,19 +43,28 @@ function AddProfile() {
     const handleAdd = (e) => {
         e.preventDefault();
 
-        const obj = {
-            account_creation: postedDate
-        };
-        fields.forEach((field) => {
-            obj[field] = e.target[field].value;
-        });
+        const form = e.target;
 
-        axios.post("http://localhost:8080/users", obj).then(() => {
-            axios.get("http://localhost:8080/users").then((response) => {
-                navigate('/')
-                alert('Profile created sucessfully')
-            });
-        });
+        // Create a FormData  (multipart form data) object   
+        //  that we can use to send to the backend  
+        //It will have any data from your form and you can
+        //  add more data to the object later
+        const formData = new FormData(form);
+    
+        //add any additional data with .set()
+        formData.set('account_creation', postedDate );
+    
+        //post to axios as multipart form data
+        axios.post("http://localhost:8080/users", formData, {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }).then((response) => {
+            navigate('/')
+            alert('Profile created sucessfully')})
+            .catch((err)=> {
+                console.log(err)
+            }) 
         e.target.reset();
     };
 
@@ -149,7 +148,7 @@ function AddProfile() {
                                 id='favourite_produce'>
                             </input>
                         </div>
-                        {/* <div className='add-user__input-subcontainer'>
+                        <div className='add-user__input-subcontainer'>
                             <h2 className='add-user__input-heading'>PROFILE PICTURE</h2>
                             <input
                                 className='add-user__input'
@@ -162,7 +161,7 @@ function AddProfile() {
                                 name='profile_pic'
                                 id='profile_pic'>
                             </input>
-                        </div> */}
+                        </div>
                     </div>
                     <div className='add-user__button-container'>
                         <Link to='/' className='add-user__button--2'>CANCEL</Link>

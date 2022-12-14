@@ -4,7 +4,7 @@ import { useState } from "react";
 import closeIcon from '../../assets/icons/close-icon.png'
 import { useNavigate } from 'react-router-dom'
 
-function DeleteModalUser({setClickDelete, id, name, userInState}) {
+function DeleteModalUser({ id, name, setUser, toClose }) {
 
     const navigate = useNavigate()
     const [success, setSuccess] = useState("");
@@ -16,10 +16,8 @@ function DeleteModalUser({setClickDelete, id, name, userInState}) {
             .then((response) => {
                 setSuccess("Post Was Deleted Successfully!");
                 axios.get("http://localhost:8080/users").then((response) => {
-                    userInState(response.data);
-                    alert('User deleted sucessfully')
+                    setUser(response.data);
                     navigate('/')
-
                 });
             })
             .catch((error) => {
@@ -27,14 +25,11 @@ function DeleteModalUser({setClickDelete, id, name, userInState}) {
             });
     };
 
-    return(
-        <div
-        className='delete'
-        onClick={() => setClickDelete(false)}>
+    return (
         <div className='delete__container'>
             <img
                 className='delete__close-icon'
-                onClick={() => setClickDelete(false)}
+                onClick={toClose}
                 src={closeIcon}
                 alt='closing X' />
             <h1 className='delete__title'>Delete user {name}?</h1>
@@ -44,13 +39,12 @@ function DeleteModalUser({setClickDelete, id, name, userInState}) {
                 <p className="delete__message">{error}</p>
                 <button
                     className='delete__button--cancel'
-                    onClick={() => setClickDelete(false)}>CANCEL</button>
+                    onClick={toClose}>CANCEL</button>
                 <button
                     className='delete__button--confirm'
                     onClick={handleDelete}>CONFIRM</button>
             </div>
         </div>
-    </div>
     )
 }
 export default DeleteModalUser

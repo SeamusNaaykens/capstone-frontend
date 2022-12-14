@@ -1,29 +1,23 @@
 import './AddPost.scss'
 import { useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { v4 as uuidv4 } from "uuid";
 
-const fields = [
-    'produce_name',
-    // 'image',
-    'produce_type',
-    'quantity',
-    'location',
-    'harvest_date'
-];
 
 function AddPost() {
+
+    const navigate = useNavigate()
 
     const {profileId } = useParams()
 
     const [newPost, setNewPost] = useState({
         produce_name: '',
-        image: '',
         produce_type: '',
         quantity: '',
         location: '',
         harvest_date: '',
+        
     })
 
 
@@ -54,18 +48,22 @@ function AddPost() {
     const handleAdd = (e) => {
         e.preventDefault();
 
-        const obj = {
-            id: uuidv4(),
-            user_id: profileId,
-            post_date: postedDate
-        };
-        fields.forEach((field) => {
-            obj[field] = e.target[field].value;
-        });
-
+        const form = e.target;
         
-        axios.post("http://localhost:8080/produce", obj).then(() => {
+        const formData = new FormData(form);
+    
+        //add any additional data with .set()
+        formData.set('user_id', profileId);
+
+        formData.set('post_date', postedDate)
+        
+        axios.post("http://localhost:8080/produce", formData, {
+            headers: {
+                "Content-Type": "multipart/form-data",
+              },
+        }).then(() => {
             axios.get("http://localhost:8080/produce").then((response) => {
+                navigate(`/${profileId}`)
                 alert('Post was sucessfully created!')
             });
         }).catch(err => {

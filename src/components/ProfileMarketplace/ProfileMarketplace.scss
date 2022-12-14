@@ -21,10 +21,12 @@
         width: 1.5rem;
 
         @include tablet {
+            margin-top: 1rem;
             width: 4vw;
         }
 
         @include desktop {
+            width: 3vw;
             margin-bottom: 2rem;
         }
     }
@@ -47,13 +49,13 @@
         width: 45%;
         border-radius: .5rem;
         height: 69vw;
-        margin-bottom: 1rem;
-        padding: .5rem 1rem .5rem 1rem;
+        margin: 2rem 0rem 2rem 0rem;
+        padding: 1rem 1rem .5rem 1rem;
     }
 
     @include desktop {
-        width: 23%;
-        height: 43vw;
+        width: 30%;
+        height: 46vw;
     }
 
     &__icon-container {
@@ -123,7 +125,7 @@
         }
 
         @include desktop {
-            font-size: 1.75vw;
+            font-size: 2vw;
         }
     }
 
@@ -131,6 +133,10 @@
         padding: .5rem .5rem 0rem .5rem;
         background-color: $darker-green;
         border-radius: .9375rem;
+
+        @include desktop {
+            padding: 1rem 1rem 1rem 1rem;
+        }
     }
 
     &__content-subcontainer {
@@ -149,7 +155,7 @@
         }
 
         @include desktop {
-            font-size: 1.3vw;
+            font-size: 1.5vw;
         }
     }
 
@@ -165,6 +171,19 @@
         @include desktop {
             font-size: 1.4vw;
         }
+    }
+
+    &__no-post {
+        margin: 2rem 0rem 2rem 0rem;
+        padding: 1rem;
+        border-radius: .75rem;
+        text-align: center;
+        background-color: $dark-green;
+    } 
+    
+    &__no-post-message {
+        font-size: 1.5rem;
+        color: $white;
     }
 
 }

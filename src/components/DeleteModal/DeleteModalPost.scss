@@ -3,71 +3,93 @@
 @use '../../styles/partials/variables' as *;
 
 .delete {
-    height: 100%;
-    width: 100vw;
-    background-color: rgba(180, 112, 4, 0.8);
-    background-size: cover;
-    padding: 2rem;
+    // width: 80%;
+    // background-color: $white;
+    // border-radius: .9375rem;
+    // padding: .5rem;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    
+    width: 100%;
+    height: 80%;
+    background-color: $white;
+    border-radius: .9375rem;
+    padding: .5rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
-
-    &__container {
-        width: 100%;
-        height: 30%;
-        background-color: $white;
-        border-radius: .9375rem;
-        padding: .5rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
 
 
     &__title {
-        font-size: 1.625rem;
-        margin-top: .5rem;
+        font-size: 5vw;
+        margin-top: 1rem;
         margin-bottom: 1rem;
     }
 
     &__close-icon {
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 5vw;
+        height: 5vw;
         align-self: start;
     }
 
     &__content {
         text-align: center;
-        font-size: 1.125rem;
+        font-size: 4.5vw;
         margin-bottom: 1rem;
+
+        @include tablet {
+            margin-bottom: 2rem;
+        }
+
+        @include desktop {
+            margin-bottom: 4rem;
+        }
     }
 
     &__button-container {
         width: 100%;
         display: flex;
         justify-content: center;
+
+        @include tablet {
+            justify-content: space-between;
+        }
     }
 
     &__button--cancel {
-        width: 40%;
+        width: 45%;
         height: 2rem;
         margin-right: 1rem;
         font-family: 'Quicksand';
         font-weight: 600;
         font-size: 1rem;
         border: none;
-        border-radius: .625rem;
+        border-radius: .9375rem;
         background-color: $orange;
         color: $white;
+
+        @include tablet {
+            height: 6vw;
+            font-size: 4vw;
+            border-radius: 5vw;
+        }
     }
 
     &__button--confirm {
-        width: 40%;
+        width: 45%;
         font-family: 'Quicksand';
         font-weight: 600;
         font-size: 1rem;
         border: none;
-        border-radius: .625rem;
+        border-radius: .9375rem;
         background-color: $blue;
         color: $white;
+
+        @include tablet {
+            height: 6vw;
+            font-size: 4vw;
+            border-radius: 5vw;
+        }
     }
 }

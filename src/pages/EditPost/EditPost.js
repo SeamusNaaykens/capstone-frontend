@@ -3,14 +3,6 @@ import { useEffect, useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import axios from 'axios'
 
-const fields = [
-    'produce_name',
-    // 'image',
-    'produce_type',
-    'quantity',
-    'location',
-    'harvest_date'
-];
 
 function EditPost() {
 
@@ -20,7 +12,6 @@ function EditPost() {
 
     const [editPost, setEditPost] = useState({
         produce_name: '',
-        // image: '',
         produce_type: '',
         quantity: '',
         location: '',
@@ -47,19 +38,24 @@ function EditPost() {
 
     const handleSubmitEvent = (e) => {
         e.preventDefault();
-        const obj = {}
-        fields.forEach((field) => {
-            obj[field] = e.target[field].value
-        })
-        e.target.reset()
-        axios
-            .patch(`http://localhost:8080/produce/${postId}`)
+
+        const form = e.target;
+
+        const formData = new FormData(form);
+
+        axios.patch(`http://localhost:8080/produce/${postId}`, formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                  },
+            })
             .then(res => {
-                obj = res.data
                 navigate(`/${editPost.user_id}`)
                 alert('Post updated sucessfully')
             })
-            .catch((err) => window.alert(err))
+            .catch((err) => {
+                console.log(err)
+            })
+        e.target.reset()
     }
 
     return (
@@ -134,28 +130,26 @@ function EditPost() {
                                 className='edit-post__input'
                                 type='text'
                                 onChange={updatePost}
-                                value={editPost.harvest_date}
                                 required={true}
                                 label='Harvest Date'
-                                placeholder='When did you harvest this produce?'
+                                placeholder='When was this harvested? Enter date in year-month-day format'
                                 name='harvest_date'
                                 id='harvest_date'>
                             </input>
                         </div>
-                        {/* <div className='edit-post__input-subcontainer'>
+                        <div className='edit-post__input-subcontainer'>
                             <h2 className='edit-post__input-heading'>UPLOAD IMAGE</h2>
                             <input
                                 className='edit-post__input'
                                 type='file'
                                 onChange={updatePost}
-                                value={editPost.image}
                                 required={true}
                                 label='Image'
                                 placeholder='Upload a picture of your produce here!'
                                 name='image'
                                 id='image'>
                             </input>
-                        </div> */}
+                        </div>
                     </div>
                     <div className='edit-post__button-container'>
                         <Link to={`/${editPost.user_id}`} className='edit-post__button--2'>CANCEL</Link>
