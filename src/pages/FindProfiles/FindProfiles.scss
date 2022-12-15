@@ -1,0 +1,105 @@
+@use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.find-profiles {
+
+    padding: 3rem 1rem 3rem 1rem;
+
+    @include tablet {
+        padding: 4rem 2rem 4rem 2rem;
+    }
+
+    @include tablet {
+        padding: 5rem 4rem 5rem 4rem;
+    }
+
+    &__container {
+        background-color: $light-green;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        border-radius: .9375rem;
+        box-shadow: 5px 5px 5px black;
+        text-align: center;
+
+        @include tablet {
+            padding: 2.5rem;
+        }
+    }
+
+    &__heading {
+        font-size: 7vw;
+        margin-bottom: 1.5rem;
+        color: $white;
+
+        @include tablet {
+            font-size: 3.5vw;
+            margin-bottom: 2rem;
+        }
+    }
+
+    &__content-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-decoration: none;
+        margin-bottom: 1rem;
+        border: solid 2px $mid-green;
+        padding: .5rem 0rem .5rem 0rem;
+        border-radius: .625rem;
+        text-align: start;
+        padding: 1rem;
+
+        @include tablet {
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @include desktop {
+            padding: 3rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    &__picture {
+        flex-shrink: 0;
+        object-fit: cover;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 2.1875rem;
+
+        @include tablet {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 2.8125rem;
+        }
+
+        @include desktop {
+            width: 8rem;
+            height: 8rem;
+            border-radius: 3.75rem;
+        }
+    }
+
+    &__name {
+        font-size: .75rem;
+        color: $white;
+
+        @include tablet {
+            font-size: 3vw;
+        }
+
+    }
+
+    &__location {
+        font-size: .75rem;
+        color: $white;
+
+        @include tablet {
+            font-size: 3vw;
+        }
+    }
+}

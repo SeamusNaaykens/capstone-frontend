@@ -24,7 +24,7 @@ function Header() {
                 <div className='header__link-subcontainer'>
                     <Link to={'/'} className='header__link--1'>Homepage</Link>
                     <Link className='header__link--2'>Learning Channel</Link>
-                    <Link className='header__link--3'>Find Profiles</Link>
+                    <Link to={'findProfiles'} className='header__link--3'>Find Profiles</Link>
                 </div>
             </div>
         </header>
