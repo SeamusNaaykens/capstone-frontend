@@ -12,7 +12,6 @@ function FindProfiles() {
     useEffect(() => {
         axios.get('http://localhost:8080/users')
             .then(response => {
-                console.log(response.data)
                 setAllProfiles(response.data)
             }).catch(err => {
                 alert("Error 404 Bad Request", err)

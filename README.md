@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+GrowLocal: A Capstone project for the BrainStation Web Development Bootcamp 
+By: Seamus Naaykens
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+THE PROBLEM:
 
-## Available Scripts
+High Level Problem
 
-In the project directory, you can run:
+With this project I wanted to tackle the problem of climate change and the degradation of our planet. It is well known that human activity is pushing our planet closer and closer to the brink of collapse. My project specifically targets the issue of industrialized farming and the impact it has on our environment. So the real problem becomes how can we stop relying so heavily on industrialized farming for production of our food? My suggestion is that we start growing our own food as soon as possible. Now this solution comes with its own set of challenges like the feasibility and accessibility of growing food at home.
 
-### `npm start`
+THE SOLUTION:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+My application is designed to tackle this problem in two ways. Firstly I wanted to enable people with minimal outdoor space to grow food (like apartment dwellers) to leverage what space they do have to get the most reward. Additionally I feel a strong community is vital to diminishing our reliance on industrialized farming. My platform tackles the first issue by enabling growers to trade their excess harvest with other members of the platform. This helps reduce potential waste and allows someone who is very successful at growing a certain type of produce to leverage what they can grow. Additionally my application will encourage community growth and help people get to know a network of other people who share a passion for growing their own food. Through community we can make a far greater impact on this massive issue facing our world. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+TECH STACK USED
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+GrowLocal is built using React, HTML5, the Sass compiler as well as the React Modal library on the frontend. The backend is built using mySQL, the Knex library, Node.js and the Express library.  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+FEATURES
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+My application is a fully functioning CRUD application where potential users can create an account, make, edit and delete posts. Additionally there is an open  marketplace where anyone can view all the posted produce on offer and individual profile pages where they can see what an individual is growing. 
 
-### `npm run eject`
+Please note that the Login feature and Learning channel have not been built yet as they are set to be completed in a later phase of work. Additionally the chat feature on the profile page is visual only and not yet functional. This will be added in the next phase of work.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+WHAT I LEARNED FROM BUILDING THIS PROJECT
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+I learned many many things from building this project from creating a search bar to uploading images and even creating databases. Additionally I learned to use the React-Modal library and how to create a fully functioning CRUD application. I also learned how much time it takes to conceive a project, design it and get all the necessary assets. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+NEXT PHASE OF DEVELOPMENT
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+I have several features I am planning to build for the next phase of development. Firstly I will be deploying this application so it can be easily accessed on the internet then I will make the placeholder chat feature fully functional. In order to do that properly I will also implement a user login so that only the owner of an account can alter their information. I will also be developing a learning channel which will provide tutorials and tips on how to grow food at home as well as providing a forum where users can share their own knowledge. 
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+INSTRUCTIONS FOR INSTALLATION
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Clone or download this repo 
 
-### Code Splitting
+2. Open the coding program of your choice and in the terminal cd to the project directory and open the cloned folder
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. In the terminal of your coding application run the command: npm install to download the necessary node_modules, files and dependencies required to use this project.
 
-### Analyzing the Bundle Size
+4. run npm start in the project directory to launch the app. it will automatically open your browser to http://localhost:3000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
