@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom'
 
 function FindProfiles() {
 
+    // State variable to save all profiles in state
     const [allProfiles, setAllProfiles] = useState([]);
 
+    // Axios request used to call all profiles and save them in state
     useEffect(() => {
         axios.get('http://localhost:8080/users')
             .then(response => {

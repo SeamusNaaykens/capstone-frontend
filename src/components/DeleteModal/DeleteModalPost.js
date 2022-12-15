@@ -6,12 +6,14 @@ import closeIcon from '../../assets/icons/close-icon.png'
 
 function DeleteModalPost({ userPosts, toClose, postId, postName }) {
 
-
+    // Variable used to save useNavigate function
     const navigate = useNavigate()
 
+    // State variables used to toggle succes of delete request
     const [success, setSuccess] = useState("");
     const [error, setError] = useState("");
 
+    // Logic and axios request used to delete a post and update the array of posts in state
     const handleDelete = (event) => {
         axios
             .delete(`http://localhost:8080/produce/${postId}`)

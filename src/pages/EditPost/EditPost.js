@@ -6,10 +6,13 @@ import axios from 'axios'
 
 function EditPost() {
 
-
+    // Variable used to save useNavigate function
     const navigate = useNavigate()
+
+    // useParam to capture profile id
     const { postId } = useParams();
 
+    // State variable used to set form input into state
     const [editPost, setEditPost] = useState({
         produce_name: '',
         produce_type: '',
@@ -18,14 +21,15 @@ function EditPost() {
         harvest_date: '',
     })
 
+    // Axios request used to get access a single post and set it in state
     useEffect(() => {
-
         axios.get(`http://localhost:8080/produce/${postId}`)
             .then(res => {
                 setEditPost(res.data)
             })
     }, [postId])
 
+    // Logic used to update a post spread operator is used to copy and input new data
     const updatePost = (e) => {
         const { name, value } = e.target;
         setEditPost((current) => {
@@ -36,6 +40,7 @@ function EditPost() {
         })
     }
 
+    // Logic used to handle incoming form data, update posts in the backend and fetch the updated data. Additional logic is implemented to pass file data to backend 
     const handleSubmitEvent = (e) => {
         e.preventDefault();
 

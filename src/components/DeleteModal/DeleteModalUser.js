@@ -6,10 +6,13 @@ import { useNavigate } from 'react-router-dom'
 
 function DeleteModalUser({ id, name, setUser, toClose }) {
 
+    // Variable used to save useNavigate function
     const navigate = useNavigate()
+    // State variables used to toggle succes of delete request
     const [success, setSuccess] = useState("");
     const [error, setError] = useState("");
 
+    // Logic and axios request used to handle delete and update the array of users in state
     const handleDelete = (event) => {
         axios
             .delete(`http://localhost:8080/users/${id}`)

@@ -5,11 +5,14 @@ import MarketplaceCard from '../MarketplaceCard/MarketplaceCard.js'
 
 function Marketplace() {
 
+    // State variable used to save all posts in state
     const [produces, setProduces] = useState([])
+    // State variable used to save search input in state
     const [searchInput, setSearchInput] = useState([]);
+    // State variable used to save all filtered posts in state
     const [filteredResults, setFilteredResults] = useState([]);
 
-
+    //Axios request used to call all posts and save them in state 
     useEffect(() => {
         axios.get(`http://localhost:8080/produce`)
             .then(response => {
@@ -19,6 +22,7 @@ function Marketplace() {
             })
     }, [])
 
+    // Logic used capture and access search input in state and filter posts in state. This logic is what I used for the search feature
     const searchItems = (searchValue) => {
         setSearchInput(searchValue)
         if (searchInput !== '') {

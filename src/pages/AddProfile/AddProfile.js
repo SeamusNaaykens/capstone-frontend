@@ -6,8 +6,10 @@ import axios from 'axios'
 
 function AddProfile() {
 
+    // Variable used to save useNavigate function
     const navigate = useNavigate()
 
+    // State variable used to set form input into state
     const [users, setUsers] = useState({
         username: '',
         email: '',
@@ -16,6 +18,7 @@ function AddProfile() {
         favourite_produce: '',
     })
 
+    // Logic used to update a profile spread operator is used to copy and input new data
     const addUser = (e) => {
         const { name, value } = e.target;
         setUsers((current) => {
@@ -26,6 +29,7 @@ function AddProfile() {
         });
     };
 
+    // Logic used to capture post date
     const date = new Date();
     const postedDate =
         date.getFullYear() +
@@ -40,6 +44,7 @@ function AddProfile() {
         ":" +
         date.getSeconds().toString();
 
+    // Logic used to handle incoming form data, post to backend and fetch the updated data. Additional logic is implemented to pass file data to backend 
     const handleAdd = (e) => {
         e.preventDefault();
 

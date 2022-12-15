@@ -2,15 +2,16 @@ import './AddPost.scss'
 import { useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { v4 as uuidv4 } from "uuid";
-
 
 function AddPost() {
 
+    // Variable used to save useNavigate function
     const navigate = useNavigate()
 
+    // useParam to capture profile id
     const {profileId } = useParams()
 
+    // State variable used to set form input into state
     const [newPost, setNewPost] = useState({
         produce_name: '',
         produce_type: '',
@@ -20,7 +21,7 @@ function AddPost() {
         
     })
 
-
+    // Logic used to add a new post. Spread operator is used to copy and push to the array
     const updatePost = (e) => {
         const { name, value } = e.target;
         setNewPost((current) => {
@@ -31,6 +32,7 @@ function AddPost() {
         });
     };
 
+    // Logic used to capture post date
     const date = new Date();
     const postedDate =
         date.getFullYear() +
@@ -45,6 +47,7 @@ function AddPost() {
         ":" +
         date.getSeconds().toString();
 
+    // Logic used to handle incoming form data, post to backend and fetch the updated data. Additional logic is implemented to pass file data to backend 
     const handleAdd = (e) => {
         e.preventDefault();
 

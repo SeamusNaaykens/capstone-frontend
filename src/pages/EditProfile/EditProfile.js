@@ -4,20 +4,15 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 
-const fields = [
-    'username',
-    'email',
-    // 'image',
-    'location',
-    'profile_statement',
-    'favourite_produce',
-];
-
 function EditProfile() {
 
+    // Variable used to save useNavigate function
     const navigate = useNavigate()
+
+    // useParam to capture profile id
     const { profileId } = useParams();
 
+    // State variable used to set form input into state
     const [editUser, setEditUser] = useState({
         username: '',
         email:'',
@@ -27,6 +22,7 @@ function EditProfile() {
         favourite_produce: '',
     })
 
+     // Axios request used to get access a the user profile data and set it in state
     useEffect(() => {
 
         axios.get(`http://localhost:8080/users/${profileId}`)
@@ -35,6 +31,7 @@ function EditProfile() {
             })
     }, [profileId])
 
+    // Logic used to update profile data. Spread operator is used to copy and input new data
     const updateUser = (e) => {
         const { name, value } = e.target;
         setEditUser((current) => {
@@ -45,6 +42,7 @@ function EditProfile() {
         })
     }
 
+     // Logic used to handle incoming form data, update posts in the backend and fetch the updated data. Additional logic is implemented to pass file data to backend 
     const handleSubmitEvent = (e) => {
         e.preventDefault();
 

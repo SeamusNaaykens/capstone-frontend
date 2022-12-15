@@ -10,12 +10,15 @@ import React from 'react'
 
 function ProfileInfo() {
 
+    // useParam used to capture profile id
     const { profileId } = useParams()
 
     const passProfileId = profileId || null
 
+    // State variable used to save user data in state
     const [user, setUser] = useState([])
 
+    // Axios request used to access a single users data
     useEffect(() => {
         if (passProfileId === null) {
             return;
@@ -29,16 +32,8 @@ function ProfileInfo() {
     }, [passProfileId])
 
 
-    // Delete Section 
-    // const [clickDelete, setClickDelete] = useState(false);
+    // Logic used to open and close delete modal
     const [modalIsOpen, setIsOpen] = React.useState(false);
-    // const [userId, setUserId] = useState("");
-    // const [postName, setPostName] = useState("");
-
-    // const handleClick = (postId, postName) => {
-    //     setPostId(postId)
-    //     setPostName(postName)
-    // }
 
     function openModal() {
         setIsOpen(true)
