@@ -10,6 +10,7 @@ import EditProfile from '../src/pages/EditProfile/EditProfile.js'
 import EditPost from '../src/pages/EditPost/EditPost.js'
 import AddPost from '../src/pages/AddPost/AddPost.js'
 import AddProfile from '../src/pages/AddProfile/AddProfile.js'
+import Login from '../src/pages/Login/Login.js'
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       <Route path='/:postId/editPost' element={<EditPost/>}/>
       <Route path='/:profileId/addPost' element={<AddPost/>}/>
       <Route path='/addProfile' element={<AddProfile/>}/>
+      <Route path='/login' element={<Login/>}/>
     </Routes>
     <Footer/>
     </BrowserRouter>

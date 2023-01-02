@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 
 function FindProfiles() {
 
+    const API_URL = 'https://growlocal.herokuapp.com'
+
     // State variable to save all profiles in state
     const [allProfiles, setAllProfiles] = useState([]);
     // State variable used to save search input in state

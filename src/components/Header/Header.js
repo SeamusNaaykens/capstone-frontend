@@ -13,7 +13,7 @@ function Header() {
                         <img className='header__create-icon--2' src={addProfile} alt='Create profile' />
                         Create profile</div>
                 </Link>
-                <Link className='header__login-link'>
+                <Link to={'/login'} className='header__login-link'>
                     <div className='header__login-container'>Login</div>
                 </Link>
             </div>
