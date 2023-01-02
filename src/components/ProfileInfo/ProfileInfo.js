@@ -10,6 +10,8 @@ import React from 'react'
 
 function ProfileInfo() {
 
+    const API_URL = 'https://growlocal.herokuapp.com'
+
     // useParam used to capture profile id
     const { profileId } = useParams()
 
@@ -23,7 +25,7 @@ function ProfileInfo() {
         if (passProfileId === null) {
             return;
         }
-        axios.get(`http://localhost:8080/users/${passProfileId}`)
+        axios.get(`${API_URL}/users/${passProfileId}`)
             .then(response => {
                 setUser(response.data)
             }).catch(err => {

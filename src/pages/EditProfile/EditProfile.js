@@ -6,6 +6,8 @@ import axios from 'axios'
 
 function EditProfile() {
 
+    const API_URL = 'https://growlocal.herokuapp.com'
+
     // Variable used to save useNavigate function
     const navigate = useNavigate()
 
@@ -25,7 +27,7 @@ function EditProfile() {
      // Axios request used to get access a the user profile data and set it in state
     useEffect(() => {
 
-        axios.get(`http://localhost:8080/users/${profileId}`)
+        axios.get(`${API_URL}/users/${profileId}`)
             .then(res => {
                 setEditUser(res.data)
             })
@@ -55,7 +57,7 @@ function EditProfile() {
         const formData = new FormData(form);
      
         axios
-            .patch(`http://localhost:8080/users/${profileId}`, formData, {
+            .patch(`${API_URL}/users/${profileId}`, formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
               },

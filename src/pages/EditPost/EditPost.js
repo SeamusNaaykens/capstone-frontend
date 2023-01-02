@@ -6,6 +6,8 @@ import axios from 'axios'
 
 function EditPost() {
 
+    const API_URL = 'https://growlocal.herokuapp.com'
+
     // Variable used to save useNavigate function
     const navigate = useNavigate()
 
@@ -23,7 +25,7 @@ function EditPost() {
 
     // Axios request used to get access a single post and set it in state
     useEffect(() => {
-        axios.get(`http://localhost:8080/produce/${postId}`)
+        axios.get(`${API_URL}/${postId}`)
             .then(res => {
                 setEditPost(res.data)
             })
@@ -48,7 +50,7 @@ function EditPost() {
 
         const formData = new FormData(form);
 
-        axios.patch(`http://localhost:8080/produce/${postId}`, formData, {
+        axios.patch(`${API_URL}/produce/${postId}`, formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                   },

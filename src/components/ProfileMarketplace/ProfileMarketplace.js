@@ -12,6 +12,8 @@ import React from 'react'
 
 function ProfileMarketplace() {
 
+    const API_URL = 'https://growlocal.herokuapp.com'
+
     // UseParam to capture the profile Id that is passed into the axios request to access all user posts
     const { profileId } = useParams()
 
@@ -26,7 +28,7 @@ function ProfileMarketplace() {
         if (passProfileId === null) {
             return;
         }
-        axios.get(`http://localhost:8080/users/${passProfileId}/produce`)
+        axios.get(`${API_URL}/users/${passProfileId}/produce`)
             .then(response => {
                 setUserPosts(response.data)
                 console.log(response.data)

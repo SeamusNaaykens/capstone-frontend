@@ -16,7 +16,7 @@ function FindProfiles() {
 
     // Axios request used to call all profiles and save them in state
     useEffect(() => {
-        axios.get('http://localhost:8080/users')
+        axios.get(`${API_URL}/users`)
             .then(response => {
                 setAllProfiles(response.data)
             }).catch(err => {

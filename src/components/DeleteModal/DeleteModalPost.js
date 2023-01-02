@@ -6,6 +6,8 @@ import closeIcon from '../../assets/icons/close-icon.png'
 
 function DeleteModalPost({ userPosts, toClose, postId, postName }) {
 
+    const API_URL = 'https://growlocal.herokuapp.com'
+
     // Variable used to save useNavigate function
     const navigate = useNavigate()
 
@@ -16,10 +18,10 @@ function DeleteModalPost({ userPosts, toClose, postId, postName }) {
     // Logic and axios request used to delete a post and update the array of posts in state
     const handleDelete = (event) => {
         axios
-            .delete(`http://localhost:8080/produce/${postId}`)
+            .delete(`${API_URL}/produce/${postId}`)
             .then((res) => {
                 setSuccess("Post Was Deleted Successfully!");
-                axios.get("http://localhost:8080/produce").then((res) => {
+                axios.get(`${API_URL}/produce`).then((res) => {
                     userPosts(res.data);
                     navigate(`/`)
                 });

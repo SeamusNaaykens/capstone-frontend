@@ -5,6 +5,8 @@ import axios from 'axios'
 
 function AddPost() {
 
+    const API_URL = 'https://growlocal.herokuapp.com'
+
     // Variable used to save useNavigate function
     const navigate = useNavigate()
 
@@ -60,12 +62,12 @@ function AddPost() {
 
         formData.set('post_date', postedDate)
         
-        axios.post("http://localhost:8080/produce", formData, {
+        axios.post(`${API_URL}/produce`, formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
               },
         }).then(() => {
-            axios.get("http://localhost:8080/produce").then((response) => {
+            axios.get(`${API_URL}/produce`).then((response) => {
                 navigate(`/${profileId}`)
                 alert('Post was sucessfully created!')
             });

@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom'
 
 function DeleteModalUser({ id, name, setUser, toClose }) {
 
+    const API_URL = 'https://growlocal.herokuapp.com'
+
     // Variable used to save useNavigate function
     const navigate = useNavigate()
     // State variables used to toggle succes of delete request
@@ -15,10 +17,10 @@ function DeleteModalUser({ id, name, setUser, toClose }) {
     // Logic and axios request used to handle delete and update the array of users in state
     const handleDelete = (event) => {
         axios
-            .delete(`http://localhost:8080/users/${id}`)
+            .delete(`${API_URL}/users/${id}`)
             .then((response) => {
                 setSuccess("Post Was Deleted Successfully!");
-                axios.get("http://localhost:8080/users").then((response) => {
+                axios.get(`${API_URL}/users`).then((response) => {
                     setUser(response.data);
                     navigate('/')
                 });

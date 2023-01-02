@@ -5,6 +5,8 @@ import MarketplaceCard from '../MarketplaceCard/MarketplaceCard.js'
 
 function Marketplace() {
 
+    const API_URL = 'https://growlocal.herokuapp.com'
+
     // State variable used to save all posts in state
     const [produces, setProduces] = useState([])
     // State variable used to save search input in state
@@ -14,7 +16,7 @@ function Marketplace() {
 
     //Axios request used to call all posts and save them in state 
     useEffect(() => {
-        axios.get(`http://localhost:8080/produce`)
+        axios.get(`${API_URL}/produce`)
             .then(response => {
                 setProduces(response.data)
             }).catch(err => {

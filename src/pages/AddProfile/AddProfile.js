@@ -6,6 +6,8 @@ import axios from 'axios'
 
 function AddProfile() {
 
+    const API_URL = 'https://growlocal.herokuapp.com'
+
     // Variable used to save useNavigate function
     const navigate = useNavigate()
 
@@ -60,7 +62,7 @@ function AddProfile() {
         formData.set('account_creation', postedDate );
     
         //post to axios as multipart form data
-        axios.post("http://localhost:8080/users", formData, {
+        axios.post(`${API_URL}/users`, formData, {
             headers: {
               "Content-Type": "multipart/form-data",
             },
