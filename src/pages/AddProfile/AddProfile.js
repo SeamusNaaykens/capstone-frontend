@@ -32,19 +32,19 @@ function AddProfile() {
     };
 
     // Logic used to capture post date
-    const date = new Date();
-    const postedDate =
-        date.getFullYear() +
-        "-" +
-        date.getMonth() +
-        "-" +
-        date.getDate() +
-        " " +
-        date.getHours().toString() +
-        ":" +
-        date.getMinutes().toString() +
-        ":" +
-        date.getSeconds().toString();
+    // const date = new Date();
+    // const postedDate =
+    //     date.getFullYear() +
+    //     "-" +
+    //     date.getMonth() +
+    //     "-" +
+    //     date.getDate() +
+    //     " " +
+    //     date.getHours().toString() +
+    //     ":" +
+    //     date.getMinutes().toString() +
+    //     ":" +
+    //     date.getSeconds().toString();
 
     // Logic used to handle incoming form data, post to backend and fetch the updated data. Additional logic is implemented to pass file data to backend 
     const handleAdd = (e) => {
@@ -59,7 +59,7 @@ function AddProfile() {
         const formData = new FormData(form);
     
         //add any additional data with .set()
-        formData.set('account_creation', postedDate );
+        // formData.set('account_creation', postedDate );
     
         //post to axios as multipart form data
         axios.post(`${API_URL}/users`, formData, {
