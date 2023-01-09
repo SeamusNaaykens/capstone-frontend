@@ -6,7 +6,9 @@ import axios from 'axios'
 
 function AddProfile() {
 
-    const API_URL = 'https://growlocal.herokuapp.com'
+    const API_URL = 'http://localhost:8080'
+    
+    // 'https://growlocal.herokuapp.com'
 
     // Variable used to save useNavigate function
     const navigate = useNavigate()
@@ -167,6 +169,22 @@ function AddProfile() {
                                 placeholder='Upload a picture to customize your profile'
                                 name='profile_pic'
                                 id='profile_pic'>
+                            </input>
+                        </div>
+                    </div>
+                    <div className='add-user__input-container'>
+                    <div className='add-user__input-subcontainer'>
+                            <h2 className='add-user__input-heading'>PASSWORD</h2>
+                            <input
+                                className='add-user__input'
+                                type='password'
+                                onChange={addUser}
+                                value={users.password}
+                                required={true}
+                                label='Password'
+                                placeholder='Create a secure password'
+                                name='password'
+                                id='password'>
                             </input>
                         </div>
                     </div>

@@ -2,6 +2,28 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
+
+.profile-no-access {
+    padding: 5rem 1rem 5rem 1rem;
+    display: flex;
+    justify-content: center;
+
+    &__container {
+        background-color: $dark-green;
+        padding: 1rem;
+        border-radius: 1rem;
+        box-shadow: 8px 8px 8px $black;
+
+        @include tablet {
+            width: 40%;
+        }
+    }
+
+    &__text {
+        color: $white;
+    }
+}
+
 .profile-page {
     margin: 2rem 1rem 2rem 1rem;
 
