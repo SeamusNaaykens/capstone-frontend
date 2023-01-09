@@ -22,7 +22,7 @@
 
     &__current-user-container {
         display: flex;
-        justify-content: start;
+        justify-content: flex-start;
 
         @include tablet {
             align-content: center;
@@ -139,6 +139,7 @@
         width: 100%;
         border-radius: 15px;
         padding: .25rem .75rem .25rem .75rem;
+        transition: background-color 2s ease-out 100ms;
 
         @include tablet {
             font-size: 2vw;
@@ -150,7 +151,12 @@
 
     }
 
+    &__login-container:hover {
+        background-color: $darker-green;
+    }
+
     &__create-link {
+
         @include tablet {
             align-self: flex-start;
             color: $white;
@@ -190,11 +196,16 @@
             width: 100%;
             border-radius: 15px;
             padding: .25rem .75rem .25rem .75rem;
+            transition: background-color 2s ease-out 100ms;
         }
 
         @include desktop {
             border-radius: 1.75rem;
         }
+    }
+
+    &__create-container:hover {
+        background-color: $darker-green;
     }
 
     &__link--1 {
@@ -206,6 +217,7 @@
         color: $white;
         background-color: $mid-orange;
         text-align: center;
+        transition: background-color 2s ease-out 100ms;
 
         @include tablet {
             width: 100%;
@@ -218,6 +230,11 @@
         }
     }
 
+    &__link--1:hover {
+        background-color: $light-orange;
+    }
+
+
     &__link--2 {
         width: 35%;
         padding: .25rem .5rem .25rem .5rem;
@@ -227,6 +244,7 @@
         color: $white;
         background-color: $mid-orange;
         text-align: center;
+        transition: background-color 2s ease-out 100ms;
 
         @include tablet {
             width: 100%;
@@ -237,6 +255,10 @@
         @include desktop {
             border-radius: 1.75rem;
         }
+    }
+
+    &__link--2:hover {
+        background-color: $light-orange;
     }
 
     &__link--3 {
@@ -248,6 +270,7 @@
         color: $white;
         background-color: $mid-orange;
         text-align: center;
+        transition: background-color 2s ease-out 100ms;
 
         @include tablet {
             width: 100%;
@@ -258,6 +281,10 @@
         @include desktop {
             border-radius: 1.75rem;
         }
+    }
+
+    &__link--3:hover {
+        background-color: $light-orange;
     }
 
     &__search {
@@ -291,6 +318,7 @@
         text-decoration: underline;
         border-radius: 15px;
         padding: .25rem .75rem .25rem .75rem;
+        transition: background-color 2s ease-out 100ms;
 
         @include tablet {
             height: 1.75rem
@@ -301,6 +329,10 @@
             border-radius: 1.75rem;
             height: 2.5rem;
         }
+    }
+
+    &__logout-button:hover {
+        background-color: $darker-green;
     }
 
 }

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import logo from '../../assets/icons/GROWLocal.jpg'
 import addProfile from '../../assets/icons/add-icon-white.png'
 
-function Header() {
+function Header({isLoggedIn}) {
 
     const [user, setUser] = useState(null);
     const [failedAuth, setFailedAuth] = useState(false);
@@ -29,11 +29,12 @@ function Header() {
             .then((response) => {
                 setUser(response.data);
             })
+
             .catch((error) => {
                 console.log(error);
                 setFailedAuth(true);
             });
-    }, []);
+    }, [isLoggedIn]);
 
     const handleLogout = () => {
         sessionStorage.removeItem('token');

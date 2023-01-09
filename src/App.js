@@ -11,12 +11,16 @@ import EditPost from '../src/pages/EditPost/EditPost.js'
 import AddPost from '../src/pages/AddPost/AddPost.js'
 import AddProfile from '../src/pages/AddProfile/AddProfile.js'
 import Login from '../src/pages/Login/Login.js'
+import { useState} from 'react'
 
 
 function App() {
+
+  const [ isLoggedIn, setIsLoggedIn] = useState(false)
+
   return (
     <BrowserRouter>
-    <Header/>
+    <Header isLoggedIn={isLoggedIn}/>
     <Routes>
       <Route path='/' element={<Homepage/>}/>
       <Route path='/:profileId' element={<Profile/>}/>
@@ -26,7 +30,7 @@ function App() {
       <Route path='/:postId/editPost' element={<EditPost/>}/>
       <Route path='/:profileId/addPost' element={<AddPost/>}/>
       <Route path='/addProfile' element={<AddProfile/>}/>
-      <Route path='/login' element={<Login/>}/>
+      <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn}/>}/>
     </Routes>
     <Footer/>
     </BrowserRouter>
