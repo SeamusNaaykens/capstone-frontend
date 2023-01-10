@@ -42,6 +42,8 @@ function Header({isLoggedIn}) {
         setFailedAuth(true);
     };
 
+    failedAuth
+
 
     return (
         <header className='header'>
