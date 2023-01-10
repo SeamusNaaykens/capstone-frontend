@@ -42,7 +42,15 @@ function Header({isLoggedIn}) {
         setFailedAuth(true);
     };
 
-    failedAuth
+    
+    // if (failedAuth) {
+    //     return (
+    //         <main className="dashboard">
+    //             <p>You must be logged in to see this page.</p>
+    //             <p><Link to="/login">Log in</Link></p>
+    //         </main>
+    //     );
+    // }
 
 
     return (
@@ -55,7 +63,7 @@ function Header({isLoggedIn}) {
                         <img className='header__create-icon--2' src={addProfile} alt='Create profile' />
                         Create profile</div>
                 </Link>
-                {user === null ? (
+                {failedAuth ? (
                     <div className='header__current-user-container'>
                         <div className='header__avatar--placeholder'></div>
                         <Link to={'/login'} className='header__login-link'>
