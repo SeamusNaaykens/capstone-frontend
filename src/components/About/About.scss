@@ -3,26 +3,54 @@
 @use '../../styles/partials/variables' as *;
 
 .about {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+
     padding: 0rem 1.5rem 0rem 1.5rem;
+    margin: 2rem 0rem 2rem 0rem;
 
     @include desktop {
         padding: 2rem 12rem 2rem 12rem;
     }
 
     &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        animation: 2s infinite bottom;
+    }
+    
+    &__container:hover {
+        animation-name: bounce;
+        animation-timing-function: ease;
+    }
+
+    @keyframes bounce {
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-50px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    &__subcontainer {
         padding: 1rem;
-        text-align:justify;
+        text-align: justify;
         background-color: $brown;
         border-radius: .3125rem;
         box-shadow: 5px 5px 5px $black;
+       
 
         @include desktop {
             padding: 2rem;
         }
     }
+
+    
 
     &__heading {
         color: $brown;
