@@ -305,7 +305,7 @@
     }
 
     &__logout-button {
-        height: 1.25rem;
+        height: 1rem;
         display: flex;
         color: $white;
         justify-content: center;
@@ -321,7 +321,7 @@
         transition: background-color .5s ease-out 100ms;
 
         @include tablet {
-            height: 1.75rem
+            height: 2rem
         }
 
         @include desktop {
