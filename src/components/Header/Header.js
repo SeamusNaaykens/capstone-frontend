@@ -8,7 +8,7 @@ import addProfile from '../../assets/icons/add-icon-white.png'
 function Header({isLoggedIn}) {
 
     const [user, setUser] = useState(null);
-    const [failedAuth, setFailedAuth] = useState(false);
+    // const [failedAuth, setFailedAuth] = useState(false);
 
     useEffect(() => {
 
@@ -16,9 +16,9 @@ function Header({isLoggedIn}) {
 
         const token = sessionStorage.getItem('token');
 
-        if (!token) {
-            return setFailedAuth(true);
-        }
+        // if (!token) {
+        //     return setFailedAuth(true);
+        // }
 
         // Get the data from the API
         axios.get(`${API_URL}/users/current/loggedin`, {
@@ -32,26 +32,16 @@ function Header({isLoggedIn}) {
 
             .catch((error) => {
                 console.log(error);
-                setFailedAuth(true);
+                // setFailedAuth(true);
             });
     }, [isLoggedIn]);
 
     const handleLogout = () => {
         sessionStorage.removeItem('token');
         setUser(null);
-        setFailedAuth(true);
+        // setFailedAuth(true);
     };
-
     
-    // if (failedAuth) {
-    //     return (
-    //         <main className="dashboard">
-    //             <p>You must be logged in to see this page.</p>
-    //             <p><Link to="/login">Log in</Link></p>
-    //         </main>
-    //     );
-    // }
-
 
     return (
         <header className='header'>
@@ -63,7 +53,7 @@ function Header({isLoggedIn}) {
                         <img className='header__create-icon--2' src={addProfile} alt='Create profile' />
                         Create profile</div>
                 </Link>
-                {failedAuth ? (
+                { user === null ? (
                     <div className='header__current-user-container'>
                         <div className='header__avatar--placeholder'></div>
                         <Link to={'/login'} className='header__login-link'>
