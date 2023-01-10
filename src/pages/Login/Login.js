@@ -6,9 +6,7 @@ import { useNavigate, Link } from 'react-router-dom'
 function Login({setIsLoggedIn}) {
     const [error, setError] = useState(false);
     const navigate = useNavigate();
-    const API_URL = 'http://localhost:8080'
-
-    // 'https://growlocal.herokuapp.com'
+    const API_URL = 'https://growlocal.herokuapp.com'
 
 
         const handleSubmit = (e) => {

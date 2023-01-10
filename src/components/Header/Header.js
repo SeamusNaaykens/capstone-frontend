@@ -12,7 +12,7 @@ function Header({isLoggedIn}) {
 
     useEffect(() => {
 
-        const API_URL = 'http://localhost:8080'
+        const API_URL = 'https://growlocal.herokuapp.com'
 
         const token = sessionStorage.getItem('token');
 

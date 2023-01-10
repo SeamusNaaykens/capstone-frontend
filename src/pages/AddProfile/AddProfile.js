@@ -6,9 +6,7 @@ import axios from 'axios'
 
 function AddProfile() {
 
-    const API_URL = 'http://localhost:8080'
-    
-    // 'https://growlocal.herokuapp.com'
+     const API_URL = 'https://growlocal.herokuapp.com'
 
     // Variable used to save useNavigate function
     const navigate = useNavigate()
