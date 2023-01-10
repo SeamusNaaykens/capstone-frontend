@@ -56,7 +56,7 @@ function EditPost() {
                   },
             })
             .then(res => {
-                navigate(`/${editPost.user_id}`)
+                navigate(`/`)
                 alert('Post updated sucessfully')
             })
             .catch((err) => {

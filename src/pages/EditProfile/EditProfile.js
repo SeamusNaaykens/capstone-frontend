@@ -125,7 +125,7 @@ function EditProfile() {
                                 type='text'
                                 onChange={updateUser}
                                 value={editUser.profile_statement}
-                                required={true}
+                                required={false}
                                 label='Profile Statement'
                                 placeholder='Let everyone know a bit about you'
                                 name='profile_statement'
