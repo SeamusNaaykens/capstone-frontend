@@ -3,33 +3,33 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom'
 
-function Login({setIsLoggedIn}) {
+function Login({ setIsLoggedIn }) {
     const [error, setError] = useState(false);
     const navigate = useNavigate();
     const API_URL = 'https://growlocal.herokuapp.com'
 
 
-        const handleSubmit = (e) => {
-            e.preventDefault();
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
-            axios.post(`${API_URL}/users/login`, {
-                username: e.target.username.value,
-                email: e.target.email.value,
-                password: e.target.password.value
+        axios.post(`${API_URL}/users/login`, {
+            username: e.target.username.value,
+            email: e.target.email.value,
+            password: e.target.password.value
+        })
+            .then((response) => {
+                sessionStorage.setItem("token", response.data.token);
+                setIsLoggedIn(true)
+                navigate('/');
+                console.log(sessionStorage)
             })
-                .then((response) => {
-                    sessionStorage.setItem("token", response.data.token);
-                    setIsLoggedIn(true)
-                    navigate('/');
-                    console.log(sessionStorage)
-                })
-                .catch((error) => {
-                    console.log(error);
-                    setError(true);
-                });
+            .catch((error) => {
+                console.log(error);
+                setError(true);
+            });
 
-        }
- 
+    }
+
 
     return (
         <div className='login'>
