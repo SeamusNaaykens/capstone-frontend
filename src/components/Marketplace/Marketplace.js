@@ -2,6 +2,7 @@ import './Marketplace.scss'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import MarketplaceCard from '../MarketplaceCard/MarketplaceCard.js'
+import About from '../About/About.js'
 
 function Marketplace() {
 
@@ -40,6 +41,7 @@ function Marketplace() {
 
     return (
         <div className='marketplace'>
+            <About/>
             <div className='marketplace__form-container'>
                 <form className='marketplace__form'>
                     <div className='marketplace__search-container'>
