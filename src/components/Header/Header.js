@@ -8,7 +8,7 @@ import addProfile from '../../assets/icons/add-icon-white.png'
 function Header({isLoggedIn}) {
 
     const [user, setUser] = useState(null);
-    // const [failedAuth, setFailedAuth] = useState(false);
+    const [failedAuth, setFailedAuth] = useState(false);
 
     useEffect(() => {
 
@@ -16,9 +16,9 @@ function Header({isLoggedIn}) {
 
         const token = sessionStorage.getItem('token');
 
-        // if (!token) {
-        //     return setFailedAuth(true);
-        // }
+        if (!token) {
+            return setFailedAuth(true);
+        }
 
         // Get the data from the API
         axios.get(`${API_URL}/users/current/loggedin`, {
@@ -32,16 +32,21 @@ function Header({isLoggedIn}) {
 
             .catch((error) => {
                 console.log(error);
-                // setFailedAuth(true);
+                setFailedAuth(true);
             });
     }, [isLoggedIn]);
 
     const handleLogout = () => {
         sessionStorage.removeItem('token');
         setUser(null);
-        // setFailedAuth(true);
+        setFailedAuth(true);
     };
     
+    if(failedAuth){
+        return (
+            setFailedAuth(false)
+        )
+    }
 
     return (
         <header className='header'>

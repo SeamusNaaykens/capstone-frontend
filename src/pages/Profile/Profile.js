@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 
 function Profile() {
 
-    const API_URL = 'http://localhost:8080'
+    const API_URL = 'https://growlocal.herokuapp.com'
 
     const [user, setUser] = useState(null);
     const [failedAuth, setFailedAuth] = useState(false);
